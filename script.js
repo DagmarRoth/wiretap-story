@@ -1,390 +1,175 @@
 // ============================================
-// SOPHISTICATED SVG CHART RENDERING
+// SOPHISTICATED MAGAZINE-STYLE VISUALS
 // ============================================
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize all charts
-    drawDivergenceChart();
-    drawCostBreakdown();
-    drawCostTrajectory();
-    drawEfficiencyCharts();
-    drawWasteRatio();
-    drawScaleComparison();
-    drawTrendAnalysis();
-
-    // Initialize scrollytelling
-    initScrollytelling();
-
-    // Add fade-in animations
+    drawAllVisuals();
     animateOnScroll();
 });
 
+function drawAllVisuals() {
+    drawContrastVisual();
+    drawDivergenceVisual();
+    drawWasteVisual();
+    drawAccelerationVisual();
+    drawAlternativesVisual();
+    drawGeographyVisual();
+    drawReckoningVisual();
+}
+
 // ============================================
-// CHART 1: DIVERGENCE (Dual-Axis)
+// VISUAL 1: CONTRAST
 // ============================================
 
-function drawDivergenceChart() {
-    const svg = document.getElementById('divergence-chart');
+function drawContrastVisual() {
+    const svg = document.getElementById('contrast-visual');
     if (!svg) return;
 
-    const width = 1000;
+    const width = 1200;
     const height = 600;
-    const margin = { top: 60, right: 80, bottom: 80, left: 80 };
+    const ns = 'http://www.w3.org/2000/svg';
+
+    svg.innerHTML = '';
+
+    // Background
+    const bg = document.createElementNS(ns, 'rect');
+    bg.setAttribute('width', width);
+    bg.setAttribute('height', height);
+    bg.setAttribute('fill', '#fff');
+    svg.appendChild(bg);
+
+    const centerX = width / 2;
+    const centerY = height / 2;
+
+    // Left side: costs up
+    drawLargeArrow(svg, ns, centerX - 200, centerY, '↑', '#ff6b6b', true);
+    const costLabel = document.createElementNS(ns, 'text');
+    costLabel.setAttribute('x', centerX - 200);
+    costLabel.setAttribute('y', centerY + 100);
+    costLabel.setAttribute('text-anchor', 'middle');
+    costLabel.setAttribute('font-size', '24');
+    costLabel.setAttribute('font-weight', '800');
+    costLabel.setAttribute('fill', '#ff6b6b');
+    costLabel.textContent = '+29.5%';
+    svg.appendChild(costLabel);
+
+    const costDesc = document.createElementNS(ns, 'text');
+    costDesc.setAttribute('x', centerX - 200);
+    costDesc.setAttribute('y', centerY + 140);
+    costDesc.setAttribute('text-anchor', 'middle');
+    costDesc.setAttribute('font-size', '16');
+    costDesc.setAttribute('fill', '#666');
+    costDesc.textContent = 'Costs';
+    svg.appendChild(costDesc);
+
+    // Right side: effectiveness down
+    drawLargeArrow(svg, ns, centerX + 200, centerY, '↓', '#50c878', false);
+    const effectLabel = document.createElementNS(ns, 'text');
+    effectLabel.setAttribute('x', centerX + 200);
+    effectLabel.setAttribute('y', centerY + 100);
+    effectLabel.setAttribute('text-anchor', 'middle');
+    effectLabel.setAttribute('font-size', '24');
+    effectLabel.setAttribute('font-weight', '800');
+    effectLabel.setAttribute('fill', '#50c878');
+    effectLabel.textContent = '-12.4%';
+    svg.appendChild(effectLabel);
+
+    const effectDesc = document.createElementNS(ns, 'text');
+    effectDesc.setAttribute('x', centerX + 200);
+    effectDesc.setAttribute('y', centerY + 140);
+    effectDesc.setAttribute('text-anchor', 'middle');
+    effectDesc.setAttribute('font-size', '16');
+    effectDesc.setAttribute('fill', '#666');
+    effectDesc.textContent = 'Effectiveness';
+    svg.appendChild(effectDesc);
+
+    // Center VS
+    const vs = document.createElementNS(ns, 'text');
+    vs.setAttribute('x', centerX);
+    vs.setAttribute('y', centerY + 20);
+    vs.setAttribute('text-anchor', 'middle');
+    vs.setAttribute('font-size', '32');
+    vs.setAttribute('font-weight', '800');
+    vs.setAttribute('fill', '#999');
+    vs.textContent = 'VS';
+    svg.appendChild(vs);
+
+    // Title
+    const title = document.createElementNS(ns, 'text');
+    title.setAttribute('x', centerX);
+    title.setAttribute('y', 50);
+    title.setAttribute('text-anchor', 'middle');
+    title.setAttribute('font-size', '20');
+    title.setAttribute('font-weight', '700');
+    title.setAttribute('fill', '#222');
+    title.textContent = 'The Central Problem: 2022-2024';
+    svg.appendChild(title);
+}
+
+function drawLargeArrow(svg, ns, x, y, arrow, color, up) {
+    const text = document.createElementNS(ns, 'text');
+    text.setAttribute('x', x);
+    text.setAttribute('y', y);
+    text.setAttribute('text-anchor', 'middle');
+    text.setAttribute('font-size', up ? '120' : '120');
+    text.setAttribute('font-weight', '800');
+    text.setAttribute('fill', color);
+    text.setAttribute('opacity', '0.3');
+    text.textContent = arrow;
+    svg.appendChild(text);
+}
+
+// ============================================
+// VISUAL 2: DIVERGENCE
+// ============================================
+
+function drawDivergenceVisual() {
+    const svg = document.getElementById('divergence-visual');
+    if (!svg) return;
+
+    const width = 1400;
+    const height = 700;
+    const margin = { top: 60, right: 100, bottom: 80, left: 100 };
     const chartWidth = width - margin.left - margin.right;
     const chartHeight = height - margin.top - margin.bottom;
 
     const ns = 'http://www.w3.org/2000/svg';
+    svg.innerHTML = '';
+
+    // Background with gradient
+    const defs = document.createElementNS(ns, 'defs');
+    const grad = document.createElementNS(ns, 'linearGradient');
+    grad.setAttribute('id', 'bgGrad');
+    grad.setAttribute('y1', '0%');
+    grad.setAttribute('y2', '100%');
+    const stop1 = document.createElementNS(ns, 'stop');
+    stop1.setAttribute('offset', '0%');
+    stop1.setAttribute('stop-color', '#f8f9fa');
+    const stop2 = document.createElementNS(ns, 'stop');
+    stop2.setAttribute('offset', '100%');
+    stop2.setAttribute('stop-color', '#fff');
+    grad.appendChild(stop1);
+    grad.appendChild(stop2);
+    defs.appendChild(grad);
+    svg.appendChild(defs);
+
+    const bg = document.createElementNS(ns, 'rect');
+    bg.setAttribute('width', width);
+    bg.setAttribute('height', height);
+    bg.setAttribute('fill', 'url(#bgGrad)');
+    svg.appendChild(bg);
 
     // Data
     const years = [2022, 2023, 2024];
     const costs = [180847, 203490, 234272];
     const incrimination = [12.9, 12.6, 11.3];
-    const costPerIncrim = [1034453, 1137029, 1462010];
-
-    // Clear SVG
-    svg.innerHTML = '';
-
-    // Background
-    const bg = document.createElementNS(ns, 'rect');
-    bg.setAttribute('width', width);
-    bg.setAttribute('height', height);
-    bg.setAttribute('fill', '#fff');
-    svg.appendChild(bg);
-
-    // Draw grid
-    drawChartGrid(svg, ns, margin, chartWidth, chartHeight, 5);
-
-    // Scale functions
-    const xScale = (i) => margin.left + (i / (years.length - 1)) * chartWidth;
-    const yScale1 = (val) => margin.top + chartHeight - (val / 250000) * chartHeight;
-    const yScale2 = (val) => margin.top + chartHeight - (val / 15) * chartHeight;
-    const yScale3 = (val) => margin.top + chartHeight - (val / 1500000) * chartHeight;
-
-    // Draw axes
-    drawDualAxes(svg, ns, margin, chartWidth, chartHeight);
-
-    // Draw lines
-    drawLine(svg, ns, years, costs, xScale, yScale1, '#ff6b6b', 'cost-line');
-    drawLine(svg, ns, years, incrimination, xScale, yScale2, '#50c878', 'incrim-line');
-    drawLine(svg, ns, years, costPerIncrim.map(x => x / 1000), xScale, y => yScale3(y * 1000), '#ffa500', 'cost-incrim-line');
-
-    // Draw points
-    drawPoints(svg, ns, years, costs, xScale, yScale1, '#ff6b6b');
-    drawPoints(svg, ns, years, incrimination, xScale, yScale2, '#50c878');
-    drawPoints(svg, ns, years, costPerIncrim.map(x => x / 1000), xScale, y => yScale3(y * 1000), '#ffa500');
-
-    // Add labels
-    addDivergenceLabels(svg, ns, width, margin, years);
-
-    // Add value labels on points
-    for (let i = 0; i < years.length; i++) {
-        // Cost labels
-        addValueLabel(svg, ns, xScale(i), yScale1(costs[i]) - 15, `$${(costs[i] / 1000).toFixed(0)}K`, '#ff6b6b');
-
-        // Incrimination labels
-        addValueLabel(svg, ns, xScale(i), yScale2(incrimination[i]) + 25, `${incrimination[i]}%`, '#50c878');
-    }
-}
-
-function drawDualAxes(svg, ns, margin, chartWidth, chartHeight) {
-    // Left Y-axis
-    const yAxis1 = document.createElementNS(ns, 'line');
-    yAxis1.setAttribute('x1', margin.left);
-    yAxis1.setAttribute('y1', margin.top);
-    yAxis1.setAttribute('x2', margin.left);
-    yAxis1.setAttribute('y2', margin.top + chartHeight);
-    yAxis1.setAttribute('stroke', '#ff6b6b');
-    yAxis1.setAttribute('stroke-width', '2.5');
-    svg.appendChild(yAxis1);
-
-    // Right Y-axis
-    const yAxis2 = document.createElementNS(ns, 'line');
-    yAxis2.setAttribute('x1', margin.left + chartWidth);
-    yAxis2.setAttribute('y1', margin.top);
-    yAxis2.setAttribute('x2', margin.left + chartWidth);
-    yAxis2.setAttribute('y2', margin.top + chartHeight);
-    yAxis2.setAttribute('stroke', '#50c878');
-    yAxis2.setAttribute('stroke-width', '2.5');
-    svg.appendChild(yAxis2);
-
-    // X-axis
-    const xAxis = document.createElementNS(ns, 'line');
-    xAxis.setAttribute('x1', margin.left);
-    xAxis.setAttribute('y1', margin.top + chartHeight);
-    xAxis.setAttribute('x2', margin.left + chartWidth);
-    xAxis.setAttribute('y2', margin.top + chartHeight);
-    xAxis.setAttribute('stroke', '#333');
-    xAxis.setAttribute('stroke-width', '2');
-    svg.appendChild(xAxis);
-}
-
-function drawLine(svg, ns, years, data, xScale, yScale, color, className) {
-    let pathData = `M ${xScale(0)} ${yScale(data[0])}`;
-    for (let i = 1; i < data.length; i++) {
-        pathData += ` L ${xScale(i)} ${yScale(data[i])}`;
-    }
-
-    const path = document.createElementNS(ns, 'path');
-    path.setAttribute('d', pathData);
-    path.setAttribute('stroke', color);
-    path.setAttribute('stroke-width', '3.5');
-    path.setAttribute('fill', 'none');
-    path.setAttribute('stroke-linecap', 'round');
-    path.setAttribute('stroke-linejoin', 'round');
-    path.classList.add(className);
-    svg.appendChild(path);
-}
-
-function drawPoints(svg, ns, years, data, xScale, yScale, color) {
-    for (let i = 0; i < data.length; i++) {
-        const circle = document.createElementNS(ns, 'circle');
-        circle.setAttribute('cx', xScale(i));
-        circle.setAttribute('cy', yScale(data[i]));
-        circle.setAttribute('r', '7');
-        circle.setAttribute('fill', color);
-        circle.setAttribute('stroke', '#fff');
-        circle.setAttribute('stroke-width', '2');
-        svg.appendChild(circle);
-    }
-}
-
-function drawChartGrid(svg, ns, margin, chartWidth, chartHeight, lines) {
-    // Vertical grid
-    for (let i = 0; i < 3; i++) {
-        const x = margin.left + (i / 2) * chartWidth;
-        const line = document.createElementNS(ns, 'line');
-        line.setAttribute('x1', x);
-        line.setAttribute('y1', margin.top);
-        line.setAttribute('x2', x);
-        line.setAttribute('y2', margin.top + chartHeight);
-        line.setAttribute('stroke', '#e0e0e0');
-        line.setAttribute('stroke-width', '1');
-        svg.appendChild(line);
-    }
-
-    // Horizontal grid
-    for (let i = 0; i <= 4; i++) {
-        const y = margin.top + (i / 4) * chartHeight;
-        const line = document.createElementNS(ns, 'line');
-        line.setAttribute('x1', margin.left);
-        line.setAttribute('y1', y);
-        line.setAttribute('x2', margin.left + chartWidth);
-        line.setAttribute('y2', y);
-        line.setAttribute('stroke', '#e0e0e0');
-        line.setAttribute('stroke-width', '1');
-        svg.appendChild(line);
-    }
-}
-
-function addValueLabel(svg, ns, x, y, text, color) {
-    const label = document.createElementNS(ns, 'text');
-    label.setAttribute('x', x);
-    label.setAttribute('y', y);
-    label.setAttribute('text-anchor', 'middle');
-    label.setAttribute('font-size', '13');
-    label.setAttribute('font-weight', '700');
-    label.setAttribute('fill', color);
-    label.textContent = text;
-    svg.appendChild(label);
-}
-
-function addDivergenceLabels(svg, ns, width, margin, years) {
-    const ns_text = 'http://www.w3.org/2000/svg';
-
-    // Title
-    const title = document.createElementNS(ns_text, 'text');
-    title.setAttribute('x', width / 2);
-    title.setAttribute('y', 35);
-    title.setAttribute('text-anchor', 'middle');
-    title.setAttribute('font-size', '16');
-    title.setAttribute('font-weight', '700');
-    title.setAttribute('fill', '#222');
-    title.textContent = 'The Divergence: Costs Up, Effectiveness Down';
-    svg.appendChild(title);
-
-    // Y-axis labels
-    const yLabel1 = document.createElementNS(ns_text, 'text');
-    yLabel1.setAttribute('x', 15);
-    yLabel1.setAttribute('y', margin.top + 20);
-    yLabel1.setAttribute('font-size', '12');
-    yLabel1.setAttribute('font-weight', '700');
-    yLabel1.setAttribute('fill', '#ff6b6b');
-    yLabel1.textContent = 'Avg Cost';
-    svg.appendChild(yLabel1);
-
-    const yLabel2 = document.createElementNS(ns_text, 'text');
-    yLabel2.setAttribute('x', width - 90);
-    yLabel2.setAttribute('y', margin.top + 20);
-    yLabel2.setAttribute('font-size', '12');
-    yLabel2.setAttribute('font-weight', '700');
-    yLabel2.setAttribute('fill', '#50c878');
-    yLabel2.textContent = 'Incrimination %';
-    svg.appendChild(yLabel2);
-
-    // X-axis labels
-    const xStart = margin.left;
-    const xEnd = width - margin.right;
-    const xSpacing = (xEnd - xStart) / 2;
-
-    for (let i = 0; i < years.length; i++) {
-        const x = xStart + (i / 2) * xSpacing;
-        const label = document.createElementNS(ns_text, 'text');
-        label.setAttribute('x', x);
-        label.setAttribute('y', width - 40);
-        label.setAttribute('text-anchor', 'middle');
-        label.setAttribute('font-size', '14');
-        label.setAttribute('fill', '#666');
-        label.setAttribute('font-weight', '600');
-        label.textContent = years[i];
-        svg.appendChild(label);
-    }
-}
-
-// ============================================
-// CHART 2: COST BREAKDOWN (Scrollytelling)
-// ============================================
-
-function drawCostBreakdown() {
-    const svg = document.getElementById('cost-breakdown');
-    if (!svg) return;
-
-    const width = 800;
-    const height = 700;
-    const ns = 'http://www.w3.org/2000/svg';
-
-    svg.innerHTML = '';
-
-    // Total cost
-    const totalCost = 405056288;
-    const effectiveCost = 147056288; // 36.3%
-    const wasteCost = 258000000;     // 63.7%
-
-    // Draw pie-like visualization with segments
-    drawCostSegments(svg, ns, width, height, totalCost, effectiveCost, wasteCost);
-}
-
-function drawCostSegments(svg, ns, width, height, total, effective, waste) {
-    const centerX = width / 2;
-    const centerY = height / 3;
-    const radius = 120;
-
-    // Effective segment (green)
-    const effectiveAngle = (effective / total) * 360;
-    drawSegment(svg, ns, centerX, centerY, radius, 0, effectiveAngle, '#50c878', 0.8);
-
-    // Waste segment (red)
-    drawSegment(svg, ns, centerX, centerY, radius, effectiveAngle, 360, '#ff6b6b', 0.8);
-
-    // Draw labels below
-    const labelY = centerY + radius + 60;
-
-    // Effective label
-    const effectiveLabel = document.createElementNS(ns, 'text');
-    effectiveLabel.setAttribute('x', centerX - 120);
-    effectiveLabel.setAttribute('y', labelY);
-    effectiveLabel.setAttribute('text-anchor', 'middle');
-    effectiveLabel.setAttribute('font-size', '14');
-    effectiveLabel.setAttribute('font-weight', '700');
-    effectiveLabel.setAttribute('fill', '#50c878');
-    effectiveLabel.textContent = '36.3% = $147M';
-    svg.appendChild(effectiveLabel);
-
-    const effectiveDesc = document.createElementNS(ns, 'text');
-    effectiveDesc.setAttribute('x', centerX - 120);
-    effectiveDesc.setAttribute('y', labelY + 25);
-    effectiveDesc.setAttribute('text-anchor', 'middle');
-    effectiveDesc.setAttribute('font-size', '11');
-    effectiveDesc.setAttribute('fill', '#666');
-    effectiveDesc.textContent = 'Evidence-producing';
-    svg.appendChild(effectiveDesc);
-
-    // Waste label
-    const wasteLabel = document.createElementNS(ns, 'text');
-    wasteLabel.setAttribute('x', centerX + 120);
-    wasteLabel.setAttribute('y', labelY);
-    wasteLabel.setAttribute('text-anchor', 'middle');
-    wasteLabel.setAttribute('font-size', '14');
-    wasteLabel.setAttribute('font-weight', '700');
-    wasteLabel.setAttribute('fill', '#ff6b6b');
-    wasteLabel.textContent = '63.7% = $258M';
-    svg.appendChild(wasteLabel);
-
-    const wasteDesc = document.createElementNS(ns, 'text');
-    wasteDesc.setAttribute('x', centerX + 120);
-    wasteDesc.setAttribute('y', labelY + 25);
-    wasteDesc.setAttribute('text-anchor', 'middle');
-    wasteDesc.setAttribute('font-size', '11');
-    wasteDesc.setAttribute('fill', '#666');
-    wasteDesc.textContent = 'Non-incriminating';
-    svg.appendChild(wasteDesc);
-
-    // Total label
-    const totalLabel = document.createElementNS(ns, 'text');
-    totalLabel.setAttribute('x', centerX);
-    totalLabel.setAttribute('y', height - 100);
-    totalLabel.setAttribute('text-anchor', 'middle');
-    totalLabel.setAttribute('font-size', '18');
-    totalLabel.setAttribute('font-weight', '800');
-    totalLabel.setAttribute('fill', '#1a1a2e');
-    totalLabel.textContent = 'Total: $405M';
-    svg.appendChild(totalLabel);
-}
-
-function drawSegment(svg, ns, centerX, centerY, radius, startAngle, endAngle, color, opacity) {
-    const start = (startAngle - 90) * Math.PI / 180;
-    const end = (endAngle - 90) * Math.PI / 180;
-
-    const x1 = centerX + radius * Math.cos(start);
-    const y1 = centerY + radius * Math.sin(start);
-    const x2 = centerX + radius * Math.cos(end);
-    const y2 = centerY + radius * Math.sin(end);
-
-    const largeArc = (endAngle - startAngle > 180) ? 1 : 0;
-
-    const pathData = `M ${centerX} ${centerY} L ${x1} ${y1} A ${radius} ${radius} 0 ${largeArc} 1 ${x2} ${y2} Z`;
-
-    const path = document.createElementNS(ns, 'path');
-    path.setAttribute('d', pathData);
-    path.setAttribute('fill', color);
-    path.setAttribute('opacity', opacity);
-    path.setAttribute('stroke', '#fff');
-    path.setAttribute('stroke-width', '2');
-    svg.appendChild(path);
-}
-
-// ============================================
-// CHART 3: COST TRAJECTORY
-// ============================================
-
-function drawCostTrajectory() {
-    const svg = document.getElementById('cost-trajectory');
-    if (!svg) return;
-
-    const width = 1000;
-    const height = 500;
-    const margin = { top: 50, right: 60, bottom: 80, left: 100 };
-    const chartWidth = width - margin.left - margin.right;
-    const chartHeight = height - margin.top - margin.bottom;
-
-    const ns = 'http://www.w3.org/2000/svg';
-    svg.innerHTML = '';
-
-    // Background
-    const bg = document.createElementNS(ns, 'rect');
-    bg.setAttribute('width', width);
-    bg.setAttribute('height', height);
-    bg.setAttribute('fill', '#fff');
-    svg.appendChild(bg);
-
-    // Data
-    const years = [2022, 2023, 2024];
-    const costs = [180847, 203490, 234272];
 
     // Scales
     const xScale = (i) => margin.left + (i / 2) * chartWidth;
-    const yScale = (val) => margin.top + chartHeight - (val / 250000) * chartHeight;
+    const yScale1 = (val) => margin.top + chartHeight - (val / 250000) * chartHeight;
+    const yScale2 = (val) => margin.top + chartHeight - (val / 15) * chartHeight;
 
-    // Draw grid
+    // Grid
     for (let i = 0; i <= 4; i++) {
         const y = margin.top + (i / 4) * chartHeight;
         const line = document.createElementNS(ns, 'line');
@@ -392,12 +177,36 @@ function drawCostTrajectory() {
         line.setAttribute('y1', y);
         line.setAttribute('x2', margin.left + chartWidth);
         line.setAttribute('y2', y);
-        line.setAttribute('stroke', '#e0e0e0');
+        line.setAttribute('stroke', '#e8e8e8');
         line.setAttribute('stroke-width', '1');
+        line.setAttribute('stroke-dasharray', '4,4');
         svg.appendChild(line);
     }
 
-    // Draw axes
+    // Draw lines
+    drawSmoothLine(svg, ns, years, costs, xScale, yScale1, '#ff6b6b', 3);
+    drawSmoothLine(svg, ns, years, incrimination, xScale, yScale2, '#50c878', 3);
+
+    // Draw circles
+    for (let i = 0; i < costs.length; i++) {
+        const circle1 = document.createElementNS(ns, 'circle');
+        circle1.setAttribute('cx', xScale(i));
+        circle1.setAttribute('cy', yScale1(costs[i]));
+        circle1.setAttribute('r', '8');
+        circle1.setAttribute('fill', '#ff6b6b');
+        circle1.setAttribute('opacity', '0.8');
+        svg.appendChild(circle1);
+
+        const circle2 = document.createElementNS(ns, 'circle');
+        circle2.setAttribute('cx', xScale(i));
+        circle2.setAttribute('cy', yScale2(incrimination[i]));
+        circle2.setAttribute('r', '8');
+        circle2.setAttribute('fill', '#50c878');
+        circle2.setAttribute('opacity', '0.8');
+        svg.appendChild(circle2);
+    }
+
+    // Axes
     const yAxis = document.createElementNS(ns, 'line');
     yAxis.setAttribute('x1', margin.left);
     yAxis.setAttribute('y1', margin.top);
@@ -416,6 +225,243 @@ function drawCostTrajectory() {
     xAxis.setAttribute('stroke-width', '2');
     svg.appendChild(xAxis);
 
+    // Labels
+    for (let i = 0; i < years.length; i++) {
+        const label = document.createElementNS(ns, 'text');
+        label.setAttribute('x', xScale(i));
+        label.setAttribute('y', margin.top + chartHeight + 40);
+        label.setAttribute('text-anchor', 'middle');
+        label.setAttribute('font-size', '16');
+        label.setAttribute('font-weight', '700');
+        label.setAttribute('fill', '#666');
+        label.textContent = years[i];
+        svg.appendChild(label);
+
+        // Cost value
+        const costVal = document.createElementNS(ns, 'text');
+        costVal.setAttribute('x', xScale(i));
+        costVal.setAttribute('y', yScale1(costs[i]) - 20);
+        costVal.setAttribute('text-anchor', 'middle');
+        costVal.setAttribute('font-size', '14');
+        costVal.setAttribute('font-weight', '700');
+        costVal.setAttribute('fill', '#ff6b6b');
+        costVal.textContent = `$${(costs[i] / 1000).toFixed(0)}K`;
+        svg.appendChild(costVal);
+
+        // Incrimination value
+        const incVal = document.createElementNS(ns, 'text');
+        incVal.setAttribute('x', xScale(i) + 40);
+        incVal.setAttribute('y', yScale2(incrimination[i]) + 20);
+        incVal.setAttribute('text-anchor', 'middle');
+        incVal.setAttribute('font-size', '14');
+        incVal.setAttribute('font-weight', '700');
+        incVal.setAttribute('fill', '#50c878');
+        incVal.textContent = `${incrimination[i]}%`;
+        svg.appendChild(incVal);
+    }
+
+    // Legend
+    const legend1 = document.createElementNS(ns, 'circle');
+    legend1.setAttribute('cx', width - 300);
+    legend1.setAttribute('cy', 60);
+    legend1.setAttribute('r', '6');
+    legend1.setAttribute('fill', '#ff6b6b');
+    svg.appendChild(legend1);
+
+    const legendText1 = document.createElementNS(ns, 'text');
+    legendText1.setAttribute('x', width - 280);
+    legendText1.setAttribute('y', 67);
+    legendText1.setAttribute('font-size', '14');
+    legendText1.setAttribute('fill', '#666');
+    legendText1.textContent = 'Average Cost (rising)';
+    svg.appendChild(legendText1);
+
+    const legend2 = document.createElementNS(ns, 'circle');
+    legend2.setAttribute('cx', width - 300);
+    legend2.setAttribute('cy', 100);
+    legend2.setAttribute('r', '6');
+    legend2.setAttribute('fill', '#50c878');
+    svg.appendChild(legend2);
+
+    const legendText2 = document.createElementNS(ns, 'text');
+    legendText2.setAttribute('x', width - 280);
+    legendText2.setAttribute('y', 107);
+    legendText2.setAttribute('font-size', '14');
+    legendText2.setAttribute('fill', '#666');
+    legendText2.textContent = 'Incrimination Rate (falling)';
+    svg.appendChild(legendText2);
+}
+
+function drawSmoothLine(svg, ns, years, data, xScale, yScale, color, width) {
+    let pathData = `M ${xScale(0)} ${yScale(data[0])}`;
+    for (let i = 1; i < data.length; i++) {
+        pathData += ` L ${xScale(i)} ${yScale(data[i])}`;
+    }
+
+    const path = document.createElementNS(ns, 'path');
+    path.setAttribute('d', pathData);
+    path.setAttribute('stroke', color);
+    path.setAttribute('stroke-width', width);
+    path.setAttribute('fill', 'none');
+    path.setAttribute('stroke-linecap', 'round');
+    path.setAttribute('stroke-linejoin', 'round');
+    path.setAttribute('opacity', '0.7');
+    svg.appendChild(path);
+}
+
+// ============================================
+// VISUAL 3: WASTE RATIO
+// ============================================
+
+function drawWasteVisual() {
+    const svg = document.getElementById('waste-visual');
+    if (!svg) return;
+
+    const width = 1000;
+    const height = 400;
+    const ns = 'http://www.w3.org/2000/svg';
+
+    svg.innerHTML = '';
+
+    const effectiveWidth = (width - 80) * 0.113;
+    const wasteWidth = (width - 80) * 0.887;
+
+    // Effective
+    const effectiveRect = document.createElementNS(ns, 'rect');
+    effectiveRect.setAttribute('x', 40);
+    effectiveRect.setAttribute('y', 100);
+    effectiveRect.setAttribute('width', effectiveWidth);
+    effectiveRect.setAttribute('height', 120);
+    effectiveRect.setAttribute('fill', '#50c878');
+    effectiveRect.setAttribute('opacity', '0.9');
+    effectiveRect.setAttribute('rx', '4');
+    svg.appendChild(effectiveRect);
+
+    // Waste
+    const wasteRect = document.createElementNS(ns, 'rect');
+    wasteRect.setAttribute('x', 40 + effectiveWidth);
+    wasteRect.setAttribute('y', 100);
+    wasteRect.setAttribute('width', wasteWidth);
+    wasteRect.setAttribute('height', 120);
+    wasteRect.setAttribute('fill', '#ff6b6b');
+    wasteRect.setAttribute('opacity', '0.9');
+    wasteRect.setAttribute('rx', '4');
+    svg.appendChild(wasteRect);
+
+    // Effective label
+    const effLabel = document.createElementNS(ns, 'text');
+    effLabel.setAttribute('x', 40 + effectiveWidth / 2);
+    effLabel.setAttribute('y', 165);
+    effLabel.setAttribute('text-anchor', 'middle');
+    effLabel.setAttribute('font-size', '18');
+    effLabel.setAttribute('font-weight', '800');
+    effLabel.setAttribute('fill', '#fff');
+    effLabel.textContent = '11.3%';
+    svg.appendChild(effLabel);
+
+    // Waste label
+    const wasteLabel = document.createElementNS(ns, 'text');
+    wasteLabel.setAttribute('x', 40 + effectiveWidth + wasteWidth / 2);
+    wasteLabel.setAttribute('y', 165);
+    wasteLabel.setAttribute('text-anchor', 'middle');
+    wasteLabel.setAttribute('font-size', '18');
+    wasteLabel.setAttribute('font-weight', '800');
+    wasteLabel.setAttribute('fill', '#fff');
+    wasteLabel.textContent = '88.7%';
+    svg.appendChild(wasteLabel);
+
+    // Bottom labels
+    const effDesc = document.createElementNS(ns, 'text');
+    effDesc.setAttribute('x', 40);
+    effDesc.setAttribute('y', 280);
+    effDesc.setAttribute('font-size', '13');
+    effDesc.setAttribute('fill', '#50c878');
+    effDesc.setAttribute('font-weight', '700');
+    effDesc.textContent = '277 incriminating intercepts';
+    svg.appendChild(effDesc);
+
+    const wasteDesc = document.createElementNS(ns, 'text');
+    wasteDesc.setAttribute('x', 40);
+    wasteDesc.setAttribute('y', 310);
+    wasteDesc.setAttribute('font-size', '13');
+    wasteDesc.setAttribute('fill', '#ff6b6b');
+    wasteDesc.setAttribute('font-weight', '700');
+    wasteDesc.textContent = '2,171 non-incriminating intercepts';
+    svg.appendChild(wasteDesc);
+
+    const moneyEff = document.createElementNS(ns, 'text');
+    moneyEff.setAttribute('x', 40);
+    moneyEff.setAttribute('y', 345);
+    moneyEff.setAttribute('font-size', '12');
+    moneyEff.setAttribute('fill', '#666');
+    moneyEff.textContent = '$147 million spent on evidence';
+    svg.appendChild(moneyEff);
+
+    const moneyWaste = document.createElementNS(ns, 'text');
+    moneyWaste.setAttribute('x', 40);
+    moneyWaste.setAttribute('y', 370);
+    moneyWaste.setAttribute('font-size', '12');
+    moneyWaste.setAttribute('fill', '#666');
+    moneyWaste.textContent = '$258 million spent on innocent conversations';
+    svg.appendChild(moneyWaste);
+}
+
+// ============================================
+// VISUAL 4: ACCELERATION
+// ============================================
+
+function drawAccelerationVisual() {
+    const svg = document.getElementById('acceleration-visual');
+    if (!svg) return;
+
+    const width = 1400;
+    const height = 600;
+    const margin = { top: 80, right: 100, bottom: 100, left: 120 };
+    const chartWidth = width - margin.left - margin.right;
+    const chartHeight = height - margin.top - margin.bottom;
+
+    const ns = 'http://www.w3.org/2000/svg';
+    svg.innerHTML = '';
+
+    // Dark background
+    const bg = document.createElementNS(ns, 'rect');
+    bg.setAttribute('width', width);
+    bg.setAttribute('height', height);
+    bg.setAttribute('fill', var(--primary));
+    svg.appendChild(bg);
+
+    const years = [2022, 2023, 2024];
+    const costs = [180847, 203490, 234272];
+
+    const xScale = (i) => margin.left + (i / 2) * chartWidth;
+    const yScale = (val) => margin.top + chartHeight - (val / 250000) * chartHeight;
+
+    // Grid
+    for (let i = 0; i <= 5; i++) {
+        const y = margin.top + (i / 5) * chartHeight;
+        const line = document.createElementNS(ns, 'line');
+        line.setAttribute('x1', margin.left);
+        line.setAttribute('y1', y);
+        line.setAttribute('x2', margin.left + chartWidth);
+        line.setAttribute('y2', y);
+        line.setAttribute('stroke', 'rgba(255,255,255,0.1)');
+        line.setAttribute('stroke-width', '1');
+        svg.appendChild(line);
+    }
+
+    // Fill under curve
+    let fillPath = `M ${xScale(0)} ${yScale(costs[0])}`;
+    for (let i = 1; i < costs.length; i++) {
+        fillPath += ` L ${xScale(i)} ${yScale(costs[i])}`;
+    }
+    fillPath += ` L ${xScale(2)} ${margin.top + chartHeight} L ${xScale(0)} ${margin.top + chartHeight} Z`;
+
+    const fill = document.createElementNS(ns, 'path');
+    fill.setAttribute('d', fillPath);
+    fill.setAttribute('fill', '#ff6b6b');
+    fill.setAttribute('opacity', '0.15');
+    svg.appendChild(fill);
+
     // Draw line
     let pathData = `M ${xScale(0)} ${yScale(costs[0])}`;
     for (let i = 1; i < costs.length; i++) {
@@ -425,309 +471,110 @@ function drawCostTrajectory() {
     const path = document.createElementNS(ns, 'path');
     path.setAttribute('d', pathData);
     path.setAttribute('stroke', '#ff6b6b');
-    path.setAttribute('stroke-width', '4');
+    path.setAttribute('stroke-width', '5');
     path.setAttribute('fill', 'none');
     path.setAttribute('stroke-linecap', 'round');
+    path.setAttribute('stroke-linejoin', 'round');
     svg.appendChild(path);
 
-    // Fill under curve
-    pathData += ` L ${xScale(2)} ${margin.top + chartHeight} L ${xScale(0)} ${margin.top + chartHeight} Z`;
-    const fill = document.createElementNS(ns, 'path');
-    fill.setAttribute('d', pathData);
-    fill.setAttribute('fill', '#ff6b6b');
-    fill.setAttribute('opacity', '0.1');
-    svg.appendChild(fill);
-
-    // Draw points
+    // Draw points with annotations
     for (let i = 0; i < costs.length; i++) {
         const circle = document.createElementNS(ns, 'circle');
         circle.setAttribute('cx', xScale(i));
         circle.setAttribute('cy', yScale(costs[i]));
-        circle.setAttribute('r', '8');
+        circle.setAttribute('r', '10');
         circle.setAttribute('fill', '#ff6b6b');
         circle.setAttribute('stroke', '#fff');
         circle.setAttribute('stroke-width', '2');
         svg.appendChild(circle);
 
-        // Value label
-        const label = document.createElementNS(ns, 'text');
-        label.setAttribute('x', xScale(i));
-        label.setAttribute('y', yScale(costs[i]) - 20);
-        label.setAttribute('text-anchor', 'middle');
-        label.setAttribute('font-size', '14');
-        label.setAttribute('font-weight', '700');
-        label.setAttribute('fill', '#ff6b6b');
-        label.textContent = `$${(costs[i] / 1000).toFixed(0)}K`;
-        svg.appendChild(label);
-
         // Year label
         const yearLabel = document.createElementNS(ns, 'text');
         yearLabel.setAttribute('x', xScale(i));
-        yearLabel.setAttribute('y', margin.top + chartHeight + 35);
+        yearLabel.setAttribute('y', margin.top + chartHeight + 50);
         yearLabel.setAttribute('text-anchor', 'middle');
-        yearLabel.setAttribute('font-size', '14');
+        yearLabel.setAttribute('font-size', '18');
         yearLabel.setAttribute('font-weight', '700');
-        yearLabel.setAttribute('fill', '#666');
+        yearLabel.setAttribute('fill', '#fff');
         yearLabel.textContent = years[i];
         svg.appendChild(yearLabel);
+
+        // Cost value
+        const costLabel = document.createElementNS(ns, 'text');
+        costLabel.setAttribute('x', xScale(i));
+        costLabel.setAttribute('y', yScale(costs[i]) - 30);
+        costLabel.setAttribute('text-anchor', 'middle');
+        costLabel.setAttribute('font-size', '16');
+        costLabel.setAttribute('font-weight', '800');
+        costLabel.setAttribute('fill', '#ffb3b3');
+        costLabel.textContent = `$${(costs[i] / 1000).toFixed(0)}K`;
+        svg.appendChild(costLabel);
+
+        // Change indicator
+        if (i > 0) {
+            const change = ((costs[i] - costs[i-1]) / costs[i-1]) * 100;
+            const changeLabel = document.createElementNS(ns, 'text');
+            changeLabel.setAttribute('x', xScale(i) + 50);
+            changeLabel.setAttribute('y', (yScale(costs[i]) + yScale(costs[i-1])) / 2);
+            changeLabel.setAttribute('font-size', '13');
+            changeLabel.setAttribute('font-weight', '700');
+            changeLabel.setAttribute('fill', '#ff9999');
+            changeLabel.textContent = `+${change.toFixed(1)}%`;
+            svg.appendChild(changeLabel);
+        }
     }
 
-    // Title
-    const title = document.createElementNS(ns, 'text');
-    title.setAttribute('x', width / 2);
-    title.setAttribute('y', 30);
-    title.setAttribute('text-anchor', 'middle');
-    title.setAttribute('font-size', '16');
-    title.setAttribute('font-weight', '700');
-    title.setAttribute('fill', '#222');
-    title.textContent = 'Average Cost Per Wiretap Order';
-    svg.appendChild(title);
-}
-
-// ============================================
-// CHART 4: EFFICIENCY METRICS
-// ============================================
-
-function drawEfficiencyCharts() {
-    drawEfficiencyChart1();
-    drawEfficiencyChart2();
-    drawEfficiencyChart3();
-}
-
-function drawEfficiencyChart1() {
-    const svg = document.getElementById('efficiency-1');
-    if (!svg) return;
-
-    const width = 300;
-    const height = 250;
-    const ns = 'http://www.w3.org/2000/svg';
-
-    svg.innerHTML = '';
-
-    const data = [133740, 143008, 165372];
-    const years = ['2022', '2023', '2024'];
-
-    drawVerticalBarChart(svg, ns, width, height, data, years, '#ff6b6b', 'Cost per Intercept');
-}
-
-function drawEfficiencyChart2() {
-    const svg = document.getElementById('efficiency-2');
-    if (!svg) return;
-
-    const width = 300;
-    const height = 250;
-    const ns = 'http://www.w3.org/2000/svg';
-
-    svg.innerHTML = '';
-
-    const data = [305, 317, 277];
-    const years = ['2022', '2023', '2024'];
-
-    drawVerticalBarChart(svg, ns, width, height, data, years, '#50c878', 'Incriminating Intercepts');
-}
-
-function drawEfficiencyChart3() {
-    const svg = document.getElementById('efficiency-3');
-    if (!svg) return;
-
-    const width = 300;
-    const height = 250;
-    const ns = 'http://www.w3.org/2000/svg';
-
-    svg.innerHTML = '';
-
-    const data = [1034453, 1137029, 1462010];
-    const years = ['2022', '2023', '2024'];
-
-    drawVerticalBarChart(svg, ns, width, height, data, years, '#ff6b6b', 'Cost per Result');
-}
-
-function drawVerticalBarChart(svg, ns, width, height, data, years, color, title) {
-    const margin = { top: 20, right: 15, bottom: 40, left: 50 };
-    const chartWidth = width - margin.left - margin.right;
-    const chartHeight = height - margin.top - margin.bottom;
-
-    const bg = document.createElementNS(ns, 'rect');
-    bg.setAttribute('width', width);
-    bg.setAttribute('height', height);
-    bg.setAttribute('fill', '#f8f9fa');
-    bg.setAttribute('rx', '8');
-    svg.appendChild(bg);
-
-    const max = Math.max(...data);
-    const barWidth = chartWidth / (data.length * 1.5);
-
-    for (let i = 0; i < data.length; i++) {
-        const x = margin.left + (i * chartWidth) / data.length + (chartWidth / (data.length * 2)) - barWidth / 2;
-        const barHeight = (data[i] / max) * chartHeight;
-        const y = margin.top + chartHeight - barHeight;
-
-        const rect = document.createElementNS(ns, 'rect');
-        rect.setAttribute('x', x);
-        rect.setAttribute('y', y);
-        rect.setAttribute('width', barWidth);
-        rect.setAttribute('height', barHeight);
-        rect.setAttribute('fill', color);
-        rect.setAttribute('opacity', '0.8');
-        rect.setAttribute('rx', '4');
-        svg.appendChild(rect);
-
-        // Year label
-        const label = document.createElementNS(ns, 'text');
-        label.setAttribute('x', x + barWidth / 2);
-        label.setAttribute('y', height - 10);
-        label.setAttribute('text-anchor', 'middle');
-        label.setAttribute('font-size', '12');
-        label.setAttribute('fill', '#666');
-        label.textContent = years[i];
-        svg.appendChild(label);
-    }
-
-    // Y-axis line
+    // Axes
     const yAxis = document.createElementNS(ns, 'line');
     yAxis.setAttribute('x1', margin.left);
     yAxis.setAttribute('y1', margin.top);
     yAxis.setAttribute('x2', margin.left);
     yAxis.setAttribute('y2', margin.top + chartHeight);
-    yAxis.setAttribute('stroke', '#ddd');
-    yAxis.setAttribute('stroke-width', '1');
+    yAxis.setAttribute('stroke', '#fff');
+    yAxis.setAttribute('stroke-width', '2');
     svg.appendChild(yAxis);
-}
 
-// ============================================
-// CHART 5: WASTE RATIO
-// ============================================
-
-function drawWasteRatio() {
-    const svg = document.getElementById('waste-ratio');
-    if (!svg) return;
-
-    const width = 900;
-    const height = 350;
-    const ns = 'http://www.w3.org/2000/svg';
-
-    svg.innerHTML = '';
-
-    // Background
-    const bg = document.createElementNS(ns, 'rect');
-    bg.setAttribute('width', width);
-    bg.setAttribute('height', height);
-    bg.setAttribute('fill', '#fff');
-    svg.appendChild(bg);
-
-    // Effective (11.3%)
-    const effectiveWidth = (width - 40) * 0.113;
-    const effectiveRect = document.createElementNS(ns, 'rect');
-    effectiveRect.setAttribute('x', 20);
-    effectiveRect.setAttribute('y', 50);
-    effectiveRect.setAttribute('width', effectiveWidth);
-    effectiveRect.setAttribute('height', 150);
-    effectiveRect.setAttribute('fill', '#50c878');
-    effectiveRect.setAttribute('rx', '4');
-    svg.appendChild(effectiveRect);
-
-    // Waste (88.7%)
-    const wasteWidth = (width - 40) * 0.887;
-    const wasteRect = document.createElementNS(ns, 'rect');
-    wasteRect.setAttribute('x', 20 + effectiveWidth);
-    wasteRect.setAttribute('y', 50);
-    wasteRect.setAttribute('width', wasteWidth);
-    wasteRect.setAttribute('height', 150);
-    wasteRect.setAttribute('fill', '#ff6b6b');
-    wasteRect.setAttribute('rx', '4');
-    svg.appendChild(wasteRect);
-
-    // Labels
-    const effectiveLabel = document.createElementNS(ns, 'text');
-    effectiveLabel.setAttribute('x', 20 + effectiveWidth / 2);
-    effectiveLabel.setAttribute('y', 140);
-    effectiveLabel.setAttribute('text-anchor', 'middle');
-    effectiveLabel.setAttribute('font-size', '16');
-    effectiveLabel.setAttribute('font-weight', '700');
-    effectiveLabel.setAttribute('fill', '#fff');
-    effectiveLabel.textContent = '11.3%';
-    svg.appendChild(effectiveLabel);
-
-    const wasteLabel = document.createElementNS(ns, 'text');
-    wasteLabel.setAttribute('x', 20 + effectiveWidth + wasteWidth / 2);
-    wasteLabel.setAttribute('y', 140);
-    wasteLabel.setAttribute('text-anchor', 'middle');
-    wasteLabel.setAttribute('font-size', '16');
-    wasteLabel.setAttribute('font-weight', '700');
-    wasteLabel.setAttribute('fill', '#fff');
-    wasteLabel.textContent = '88.7%';
-    svg.appendChild(wasteLabel);
-
-    // Legend
-    const legend1 = document.createElementNS(ns, 'text');
-    legend1.setAttribute('x', 20);
-    legend1.setAttribute('y', 250);
-    legend1.setAttribute('font-size', '14');
-    legend1.setAttribute('font-weight', '700');
-    legend1.setAttribute('fill', '#50c878');
-    legend1.textContent = '277 incriminating intercepts';
-    svg.appendChild(legend1);
-
-    const legend2 = document.createElementNS(ns, 'text');
-    legend2.setAttribute('x', 20);
-    legend2.setAttribute('y', 280);
-    legend2.setAttribute('font-size', '14');
-    legend2.setAttribute('font-weight', '700');
-    legend2.setAttribute('fill', '#ff6b6b');
-    legend2.textContent = '2,171 non-incriminating intercepts';
-    svg.appendChild(legend2);
-
-    const title = document.createElementNS(ns, 'text');
-    title.setAttribute('x', 20);
-    title.setAttribute('y', 30);
-    title.setAttribute('font-size', '14');
-    title.setAttribute('font-weight', '700');
-    title.setAttribute('fill', '#222');
-    title.textContent = 'Of 2,448 Total Intercepts in 2024';
-    svg.appendChild(title);
-
-    const subtitle = document.createElementNS(ns, 'text');
-    subtitle.setAttribute('x', 20);
-    subtitle.setAttribute('y', 320);
-    subtitle.setAttribute('font-size', '12');
-    subtitle.setAttribute('fill', '#666');
-    subtitle.textContent = 'Total: 2,448 intercepts | Effective: $147.0M | Wasted: $258.1M';
-    svg.appendChild(subtitle);
-}
-
-// ============================================
-// CHART 6: SCALE COMPARISON
-// ============================================
-
-function drawScaleComparison() {
-    const svg = document.getElementById('scale-comparison');
-    if (!svg) return;
-
-    const width = 1000;
-    const height = 600;
-    const ns = 'http://www.w3.org/2000/svg';
-
-    svg.innerHTML = '';
-
-    // Background
-    const bg = document.createElementNS(ns, 'rect');
-    bg.setAttribute('width', width);
-    bg.setAttribute('height', height);
-    bg.setAttribute('fill', '#fff');
-    svg.appendChild(bg);
+    const xAxis = document.createElementNS(ns, 'line');
+    xAxis.setAttribute('x1', margin.left);
+    xAxis.setAttribute('y1', margin.top + chartHeight);
+    xAxis.setAttribute('x2', margin.left + chartWidth);
+    xAxis.setAttribute('y2', margin.top + chartHeight);
+    xAxis.setAttribute('stroke', '#fff');
+    xAxis.setAttribute('stroke-width', '2');
+    svg.appendChild(xAxis);
 
     // Title
     const title = document.createElementNS(ns, 'text');
     title.setAttribute('x', width / 2);
     title.setAttribute('y', 40);
     title.setAttribute('text-anchor', 'middle');
-    title.setAttribute('font-size', '18');
+    title.setAttribute('font-size', '20');
     title.setAttribute('font-weight', '700');
-    title.setAttribute('fill', '#222');
-    title.textContent = '$405 Million Could Fund Instead:';
+    title.setAttribute('fill', '#fff');
+    title.textContent = 'The Cost Acceleration';
     svg.appendChild(title);
+}
 
-    // Data
+// ============================================
+// VISUAL 5: ALTERNATIVES
+// ============================================
+
+function drawAlternativesVisual() {
+    const svg = document.getElementById('alternatives-visual');
+    if (!svg) return;
+
+    const width = 1000;
+    const height = 700;
+    const ns = 'http://www.w3.org/2000/svg';
+
+    svg.innerHTML = '';
+
+    const bg = document.createElementNS(ns, 'rect');
+    bg.setAttribute('width', width);
+    bg.setAttribute('height', height);
+    bg.setAttribute('fill', '#fff');
+    svg.appendChild(bg);
+
     const items = [
         { label: '13,500 Police Officers', value: 13500, color: '#4a90e2' },
         { label: '40,500 Drug Treatment Programs', value: 40500, color: '#ff6b6b' },
@@ -735,14 +582,14 @@ function drawScaleComparison() {
         { label: '202,500 Youth Intervention Positions', value: 202500, color: '#ffa500' }
     ];
 
-    const maxValue = items[items.length - 1].value;
-    const barHeight = 40;
-    const spacing = 100;
-    let currentY = 100;
+    const maxValue = 202500;
+    const barHeight = 50;
+    const spacing = 150;
+    let currentY = 80;
 
     for (let i = 0; i < items.length; i++) {
         const item = items[i];
-        const barWidth = (item.value / maxValue) * (width - 300);
+        const barWidth = (item.value / maxValue) * 700;
 
         // Bar
         const rect = document.createElementNS(ns, 'rect');
@@ -752,40 +599,40 @@ function drawScaleComparison() {
         rect.setAttribute('height', barHeight);
         rect.setAttribute('fill', item.color);
         rect.setAttribute('opacity', '0.8');
-        rect.setAttribute('rx', '4');
+        rect.setAttribute('rx', '6');
         svg.appendChild(rect);
 
-        // Number label
+        // Number
         const numLabel = document.createElementNS(ns, 'text');
         numLabel.setAttribute('x', 140);
-        numLabel.setAttribute('y', currentY + barHeight / 2 + 5);
+        numLabel.setAttribute('y', currentY + barHeight / 2 + 8);
         numLabel.setAttribute('text-anchor', 'end');
-        numLabel.setAttribute('font-size', '13');
-        numLabel.setAttribute('font-weight', '700');
+        numLabel.setAttribute('font-size', '16');
+        numLabel.setAttribute('font-weight', '800');
         numLabel.setAttribute('fill', '#222');
         numLabel.textContent = item.value.toLocaleString();
         svg.appendChild(numLabel);
 
-        // Text label
-        const textLabel = document.createElementNS(ns, 'text');
-        textLabel.setAttribute('x', 160 + barWidth);
-        textLabel.setAttribute('y', currentY + barHeight / 2 + 5);
-        textLabel.setAttribute('font-size', '12');
-        textLabel.setAttribute('font-weight', '600');
-        textLabel.setAttribute('fill', '#666');
-        textLabel.textContent = item.label;
-        svg.appendChild(textLabel);
+        // Label
+        const label = document.createElementNS(ns, 'text');
+        label.setAttribute('x', 160 + barWidth);
+        label.setAttribute('y', currentY + barHeight / 2 + 8);
+        label.setAttribute('font-size', '13');
+        label.setAttribute('font-weight', '600');
+        label.setAttribute('fill', '#666');
+        label.textContent = item.label;
+        svg.appendChild(label);
 
         currentY += spacing;
     }
 }
 
 // ============================================
-// CHART 7: TREND ANALYSIS
+// VISUAL 6: GEOGRAPHY
 // ============================================
 
-function drawTrendAnalysis() {
-    const svg = document.getElementById('trend-analysis');
+function drawGeographyVisual() {
+    const svg = document.getElementById('geography-visual');
     if (!svg) return;
 
     const width = 1000;
@@ -794,137 +641,148 @@ function drawTrendAnalysis() {
 
     svg.innerHTML = '';
 
-    // Background
     const bg = document.createElementNS(ns, 'rect');
     bg.setAttribute('width', width);
     bg.setAttribute('height', height);
-    bg.setAttribute('fill', '#fff');
+    bg.setAttribute('fill', '#f8f9fa');
     svg.appendChild(bg);
 
-    // Title
-    const title = document.createElementNS(ns, 'text');
-    title.setAttribute('x', width / 2);
-    title.setAttribute('y', 35);
-    title.setAttribute('text-anchor', 'middle');
-    title.setAttribute('font-size', '16');
-    title.setAttribute('font-weight', '700');
-    title.setAttribute('fill', '#222');
-    title.textContent = 'All Key Metrics Trending Downward (2022-2024)';
-    svg.appendChild(title);
+    // California
+    drawStateBar(svg, ns, 50, 100, 'California', 366, '#ff6b6b', 0.35);
 
-    // Data points
-    const metrics = [
-        { name: 'Avg Cost/Order', values: [180847, 203490, 234272], color: '#ff6b6b', y: 100 },
-        { name: 'Incrimination Rate', values: [12.9, 12.6, 11.3], color: '#50c878', y: 200, scale: 100 },
-        { name: 'Cost/Incriminating', values: [1034453, 1137029, 1462010], color: '#ffa500', y: 300, scale: 100000 }
-    ];
+    // New York
+    drawStateBar(svg, ns, 50, 180, 'New York', 138, '#ffa500', 0.15);
 
-    const years = ['2022', '2023', '2024'];
-    const spacing = (width - 200) / 2;
+    // Nevada
+    drawStateBar(svg, ns, 50, 260, 'Nevada', 93, '#4a90e2', 0.10);
 
-    for (const metric of metrics) {
-        // Draw downward arrows
-        for (let i = 0; i < metric.values.length; i++) {
-            const x = 100 + i * spacing;
+    // Florida
+    drawStateBar(svg, ns, 50, 340, 'Florida', 80, '#50c878', 0.08);
 
-            // Downward trend indicator
-            if (i > 0) {
-                const arrow = document.createElementNS(ns, 'text');
-                arrow.setAttribute('x', x + 20);
-                arrow.setAttribute('y', metric.y - 10);
-                arrow.setAttribute('font-size', '20');
-                arrow.setAttribute('fill', '#ff6b6b');
-                arrow.textContent = '↓';
-                svg.appendChild(arrow);
-            }
+    // All Others
+    drawStateBar(svg, ns, 50, 420, 'All Other States', 330, '#bbb', 0.32);
+}
 
-            // Circle
-            const circle = document.createElementNS(ns, 'circle');
-            circle.setAttribute('cx', x);
-            circle.setAttribute('cy', metric.y);
-            circle.setAttribute('r', '6');
-            circle.setAttribute('fill', metric.color);
-            svg.appendChild(circle);
+function drawStateBar(svg, ns, x, y, name, value, color, width) {
+    const barWidth = width * 800;
+    const rect = document.createElementNS(ns, 'rect');
+    rect.setAttribute('x', x + 200);
+    rect.setAttribute('y', y);
+    rect.setAttribute('width', barWidth);
+    rect.setAttribute('height', 50);
+    rect.setAttribute('fill', color);
+    rect.setAttribute('opacity', '0.8');
+    rect.setAttribute('rx', '4');
+    svg.appendChild(rect);
 
-            // Value label
-            const label = document.createElementNS(ns, 'text');
-            label.setAttribute('x', x);
-            label.setAttribute('y', metric.y + 25);
-            label.setAttribute('text-anchor', 'middle');
-            label.setAttribute('font-size', '12');
-            label.setAttribute('font-weight', '700');
-            label.setAttribute('fill', '#222');
+    const label = document.createElementNS(ns, 'text');
+    label.setAttribute('x', x + 180);
+    label.setAttribute('y', y + 32);
+    label.setAttribute('text-anchor', 'end');
+    label.setAttribute('font-size', '13');
+    label.setAttribute('font-weight', '700');
+    label.setAttribute('fill', '#222');
+    label.textContent = name;
+    svg.appendChild(label);
 
-            let displayValue;
-            if (metric.scale === 100) {
-                displayValue = metric.values[i].toFixed(1) + '%';
-            } else if (metric.scale === 100000) {
-                displayValue = '$' + (metric.values[i] / 1000000).toFixed(1) + 'M';
-            } else {
-                displayValue = '$' + (metric.values[i] / 1000).toFixed(0) + 'K';
-            }
-
-            label.textContent = displayValue;
-            svg.appendChild(label);
-
-            // Year label
-            const yearLabel = document.createElementNS(ns, 'text');
-            yearLabel.setAttribute('x', x);
-            yearLabel.setAttribute('y', metric.y + 50);
-            yearLabel.setAttribute('text-anchor', 'middle');
-            yearLabel.setAttribute('font-size', '11');
-            yearLabel.setAttribute('fill', '#999');
-            yearLabel.textContent = years[i];
-            svg.appendChild(yearLabel);
-        }
-
-        // Metric name
-        const nameLabel = document.createElementNS(ns, 'text');
-        nameLabel.setAttribute('x', 30);
-        nameLabel.setAttribute('y', metric.y + 5);
-        nameLabel.setAttribute('font-size', '12');
-        nameLabel.setAttribute('font-weight', '700');
-        nameLabel.setAttribute('fill', metric.color);
-        nameLabel.textContent = metric.name;
-        svg.appendChild(nameLabel);
-
-        // Line connecting points
-        const line1X = 100;
-        const line2X = 100 + spacing;
-        const line = document.createElementNS(ns, 'line');
-        line.setAttribute('x1', line1X);
-        line.setAttribute('y1', metric.y);
-        line.setAttribute('x2', line2X);
-        line.setAttribute('y2', metric.y);
-        line.setAttribute('stroke', metric.color);
-        line.setAttribute('stroke-width', '1.5');
-        line.setAttribute('opacity', '0.3');
-        line.setAttribute('stroke-dasharray', '3,3');
-        svg.appendChild(line);
-    }
+    const number = document.createElementNS(ns, 'text');
+    number.setAttribute('x', x + 210 + barWidth);
+    number.setAttribute('y', y + 32);
+    number.setAttribute('font-size', '13');
+    number.setAttribute('font-weight', '700');
+    number.setAttribute('fill', '#666');
+    number.textContent = value + ' orders';
+    svg.appendChild(number);
 }
 
 // ============================================
-// SCROLLYTELLING
+// VISUAL 7: RECKONING
 // ============================================
 
-function initScrollytelling() {
-    const scrollSections = document.querySelectorAll('.scroll-section');
+function drawReckoningVisual() {
+    const svg = document.getElementById('reckoning-visual');
+    if (!svg) return;
 
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                scrollSections.forEach(section => {
-                    section.classList.remove('active');
-                });
-                entry.target.classList.add('active');
-            }
-        });
-    }, { threshold: 0.6 });
+    const width = 1400;
+    const height = 600;
+    const ns = 'http://www.w3.org/2000/svg';
 
-    scrollSections.forEach(section => {
-        observer.observe(section);
-    });
+    svg.innerHTML = '';
+
+    // Dark background
+    const bg = document.createElementNS(ns, 'rect');
+    bg.setAttribute('width', width);
+    bg.setAttribute('height', height);
+    bg.setAttribute('fill', var(--primary));
+    svg.appendChild(bg);
+
+    const centerX = width / 2;
+    const centerY = height / 2;
+
+    // Three negative trends
+    const metrics = [
+        { label: 'Costs', value: '+29.5%', x: centerX - 300, color: '#ff6b6b' },
+        { label: 'Effectiveness', value: '-12.4%', x: centerX, color: '#50c878' },
+        { label: 'Cost per Result', value: '+41.4%', x: centerX + 300, color: '#ffa500' }
+    ];
+
+    for (const metric of metrics) {
+        // Background box
+        const box = document.createElementNS(ns, 'rect');
+        box.setAttribute('x', metric.x - 100);
+        box.setAttribute('y', centerY - 100);
+        box.setAttribute('width', '200');
+        box.setAttribute('height', '200');
+        box.setAttribute('fill', 'rgba(255,255,255,0.05)');
+        box.setAttribute('stroke', metric.color);
+        box.setAttribute('stroke-width', '2');
+        box.setAttribute('rx', '8');
+        svg.appendChild(box);
+
+        // Metric label
+        const label = document.createElementNS(ns, 'text');
+        label.setAttribute('x', metric.x);
+        label.setAttribute('y', centerY - 50);
+        label.setAttribute('text-anchor', 'middle');
+        label.setAttribute('font-size', '16');
+        label.setAttribute('font-weight', '700');
+        label.setAttribute('fill', '#fff');
+        label.textContent = metric.label;
+        svg.appendChild(label);
+
+        // Value
+        const value = document.createElementNS(ns, 'text');
+        value.setAttribute('x', metric.x);
+        value.setAttribute('y', centerY + 30);
+        value.setAttribute('text-anchor', 'middle');
+        value.setAttribute('font-size', '32');
+        value.setAttribute('font-weight', '800');
+        value.setAttribute('fill', metric.color);
+        value.textContent = metric.value;
+        svg.appendChild(value);
+
+        // Arrow down
+        const arrow = document.createElementNS(ns, 'text');
+        arrow.setAttribute('x', metric.x);
+        arrow.setAttribute('y', centerY + 80);
+        arrow.setAttribute('text-anchor', 'middle');
+        arrow.setAttribute('font-size', '40');
+        arrow.setAttribute('fill', metric.color);
+        arrow.setAttribute('opacity', '0.5');
+        arrow.textContent = '↓';
+        svg.appendChild(arrow);
+    }
+
+    // Title
+    const title = document.createElementNS(ns, 'text');
+    title.setAttribute('x', centerX);
+    title.setAttribute('y', 50);
+    title.setAttribute('text-anchor', 'middle');
+    title.setAttribute('font-size', '22');
+    title.setAttribute('font-weight', '700');
+    title.setAttribute('fill', '#fff');
+    title.textContent = 'All Metrics Moving the Same Direction';
+    svg.appendChild(title);
 }
 
 // ============================================
@@ -932,7 +790,7 @@ function initScrollytelling() {
 // ============================================
 
 function animateOnScroll() {
-    const elements = document.querySelectorAll('.chapter, .stat-item, .question-card, .insight-box');
+    const elements = document.querySelectorAll('.narrative-section, .visual-section, h2, .stat-reveal, .timeline-item, .question-item, .big-question');
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -941,12 +799,12 @@ function animateOnScroll() {
                 entry.target.style.transform = 'translateY(0)';
             }
         });
-    }, { threshold: 0.15 });
+    }, { threshold: 0.1 });
 
     elements.forEach(element => {
         element.style.opacity = '0';
-        element.style.transform = 'translateY(30px)';
-        element.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+        element.style.transform = 'translateY(40px)';
+        element.style.transition = 'opacity 1s ease, transform 1s ease';
         observer.observe(element);
     });
 }

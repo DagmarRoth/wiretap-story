@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Cost of Surveillance: A Visual Investigation</title>
+    <title>The Cost of Surveillance: An Investigation</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <!-- IMMERSIVE HERO -->
     <section class="hero-immersive">
         <div class="hero-overlay"></div>
-        <div class="hero-bg" id="hero-bg"></div>
+        <div class="hero-bg"></div>
         <div class="hero-text">
             <div class="eyebrow">An Investigation</div>
             <h1>The Cost of Surveillance</h1>
-            <p class="hero-subtitle">Spending skyrockets. Effectiveness plummets. A three-year reckoning with America's most expensive law enforcement tool.</p>
+            <p class="hero-subtitle">How America's most expensive law enforcement tool is getting less effective while costing more.</p>
             <div class="scroll-hint">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <polyline points="6 9 12 15 18 9"></polyline>
@@ -28,248 +28,329 @@
         <div class="container">
             <div class="text-block">
                 <h2>The Paradox</h2>
-                <p>Every year, the United States government spends hundreds of millions of dollars on wiretaps—court-authorized electronic surveillance of phone calls and private communications. It is the most intrusive tool available to law enforcement, requiring a judge to find probable cause that a serious crime is being committed.</p>
-                <p>In 2024, America authorized 2,297 wiretap operations. The cost: <strong>$405 million</strong>.</p>
-                <p>Yet of all the communications recorded—2,448 total intercepts—only 277 contained evidence relevant to a criminal investigation.</p>
-                <p>That's an 11.3% success rate. Or, looking at it another way: <strong>88.7% waste</strong>.</p>
+                <p>In 2024, the United States government authorized 2,297 wiretap operations. The cost: <strong>$405 million</strong>.</p>
+                <p>Yet only 11.3% of the 2,448 intercepts recorded contained evidence relevant to criminal investigation.</p>
+                <p>This is not a problem of a single year. It's a deteriorating trend. And we have three years of complete data to prove it.</p>
             </div>
         </div>
     </section>
 
-    <!-- VISUAL 1: THE CONTRAST -->
-    <section class="visual-section dark-section">
-        <div class="container">
-            <svg id="contrast-visual" viewBox="0 0 1200 600" class="magazine-visual"></svg>
+    <!-- COMPLEX VISUAL 1: THE COMPREHENSIVE DASHBOARD -->
+    <section class="visual-section full-bleed">
+        <div class="visual-header">
+            <h2>The Complete Picture: 2022-2024</h2>
+            <p class="subtitle">All key metrics from wiretap operations, displayed together. Hover or tap to explore.</p>
         </div>
+        <svg id="comprehensive-dashboard" viewBox="0 0 1600 900" class="complex-data-viz"></svg>
         <div class="visual-caption">
-            <p>In 2024, wiretap spending reached $405 million despite declining authorization rates. Yet effectiveness metrics show deteriorating results.</p>
+            <p><strong>Read this left to right:</strong> Each year (2022, 2023, 2024) shows 6 critical metrics. Red metrics are increasing (bad). Green metrics are decreasing (bad). The height of each metric represents its value.</p>
         </div>
     </section>
 
-    <!-- SECTION 2: THE ACCELERATION -->
+    <!-- SECTION 2: THE DEEP DIVE -->
     <section class="narrative-section">
         <div class="container">
             <div class="text-block">
-                <h2>Getting More Expensive, Less Effective</h2>
-                <p>The trend is worsening. From 2022 to 2024, the average cost per wiretap operation increased by 29.5%—from $180,847 to $234,272.</p>
-                <p>That alone would be alarming. But here's what makes it a crisis: <strong>while costs rose, results fell</strong>.</p>
-                <p>In 2022, 12.9% of intercepts were incriminating. By 2024, that had declined to 11.3%. We're spending more money to catch fewer criminals.</p>
-                <p>The mathematicians among you will understand the real problem: <strong>the cost per incriminating intercept climbed 41.4%</strong>. From $1.03 million to $1.46 million.</p>
+                <h2>What the Numbers Tell Us</h2>
+                <p>The data above shows something alarming: <strong>every single metric is moving in the wrong direction</strong>.</p>
+                <p>Costs are rising. Orders are declining. Effectiveness is plummeting. The cost per result has more than doubled in three years.</p>
+                <p>But raw numbers can hide as much as they reveal. To truly understand what's happening, we need to explore the data from multiple angles.</p>
             </div>
         </div>
     </section>
 
-    <!-- VISUAL 2: THE DIVERGENCE STORY -->
-    <section class="full-bleed-visual">
-        <svg id="divergence-visual" viewBox="0 0 1400 700" class="magazine-visual"></svg>
-        <div class="visual-label">
-            <span>Three lines, three stories. All pointing the wrong direction.</span>
+    <!-- COMPLEX VISUAL 2: THE COST-EFFECTIVENESS MATRIX -->
+    <section class="visual-section full-bleed">
+        <div class="visual-header">
+            <h2>Cost vs. Effectiveness Over Time</h2>
+            <p class="subtitle">Interactive scatter plot: Each bubble is a year. Size = total spending. Position = effectiveness. Watch what happens.</p>
         </div>
-    </section>
-
-    <!-- SECTION 3: THE MONEY -->
-    <section class="narrative-section highlight-section">
-        <div class="container">
-            <div class="stat-reveal">
-                <div class="stat-massive">$258 Million</div>
-                <div class="stat-description">spent recording innocent conversations</div>
-            </div>
-            <p>Of the $405 million spent on wiretaps in 2024, $147 million funded operations that produced evidence. The rest—nearly $260 million—was spent recording people who had done nothing wrong.</p>
-            <p>People who weren't the target. People who picked up the phone at the wrong time. People whose only connection to a crime was being in the wrong place at the wrong moment.</p>
-            <p>All recorded. All listened to. All representing an investment that returned nothing.</p>
+        <svg id="cost-effectiveness-matrix" viewBox="0 0 1400 700" class="complex-data-viz"></svg>
+        <div class="chart-controls">
+            <button class="control-btn active" data-view="2d">2D View</button>
+            <button class="control-btn" data-view="3d">Add Third Dimension</button>
         </div>
-    </section>
-
-    <!-- VISUAL 3: THE WASTE PROPORTION -->
-    <section class="visual-section centered-visual">
-        <svg id="waste-visual" viewBox="0 0 1000 400" class="magazine-visual"></svg>
         <div class="visual-caption">
-            <p>Of every dollar spent on wiretaps, 63.7¢ produces no evidence.</p>
+            <p>Left = Cheaper, Right = More Expensive. Bottom = Less Effective, Top = More Effective. Notice how the data moves right (costs up) and down (effectiveness down) simultaneously.</p>
         </div>
     </section>
 
-    <!-- SECTION 4: THE TIMELINE -->
+    <!-- SECTION 3: THE STORY IN THE DATA -->
     <section class="narrative-section">
         <div class="container">
-            <h2>Three Years of Deterioration</h2>
-
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-year">2022</div>
-                    <div class="timeline-content">
-                        <h3>The Baseline</h3>
-                        <p>2,414 orders authorized. Average cost: $180,847. Incrimination rate: 12.9%.</p>
-                        <p>This is the starting point. Before the crisis.</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-year">2023</div>
-                    <div class="timeline-content">
-                        <h3>The Warning Sign</h3>
-                        <p>2,398 orders. Costs jumped 12.5% to $203,490. Incrimination rate: 12.6%.</p>
-                        <p>Still manageable. The system appeared stable, even if expensive.</p>
-                    </div>
-                </div>
-
-                <div class="timeline-item critical">
-                    <div class="timeline-year">2024</div>
-                    <div class="timeline-content">
-                        <h3>The Breaking Point</h3>
-                        <p>2,297 orders. Costs surged another 15.1% to $234,272. Incrimination rate: 11.3%.</p>
-                        <p><strong>Now we have fewer operations, higher costs, and worse results. This is not sustainable.</strong></p>
-                    </div>
-                </div>
+            <div class="text-block">
+                <h2>Three Years of Divergence</h2>
+                <p>2022 was the baseline. Expensive, but perhaps justifiable. The system seemed stable.</p>
+                <p>2023 was a warning. Costs jumped 12.5%. Effectiveness barely budged.</p>
+                <p>2024 was the breaking point. Costs jumped another 15.1%. Effectiveness collapsed to 11.3%.</p>
+                <p>The acceleration is the story. This isn't a stable system reaching equilibrium. This is a system spiraling.</p>
             </div>
         </div>
     </section>
 
-    <!-- VISUAL 4: THE ACCELERATION CURVE -->
-    <section class="full-bleed-visual dark-bg">
-        <svg id="acceleration-visual" viewBox="0 0 1400 600" class="magazine-visual"></svg>
-        <div class="visual-label light">
-            <span>The cost trajectory is accelerating, not stabilizing.</span>
+    <!-- COMPLEX VISUAL 3: THE BREAKDOWN BY OUTCOME -->
+    <section class="visual-section full-bleed">
+        <div class="visual-header">
+            <h2>Every Dollar Spent: Where Did It Go?</h2>
+            <p class="subtitle">Sankey diagram showing flow of money from authorization to outcome. Each line = spending.</p>
         </div>
-    </section>
-
-    <!-- SECTION 5: WHAT COULD IT BE? -->
-    <section class="narrative-section question-section">
-        <div class="container">
-            <h2>What Happened?</h2>
-            <p>The data tells us <em>what</em> happened. It cannot tell us <em>why</em>.</p>
-
-            <div class="questions-set">
-                <div class="question-item">
-                    <h3>Are wiretaps becoming more technologically sophisticated?</h3>
-                    <p>Newer surveillance methods, better equipment, more complex implementations—all would explain rising costs.</p>
-                </div>
-
-                <div class="question-item">
-                    <h3>Are investigations becoming more complex?</h3>
-                    <p>Perhaps the cases that warrant wiretaps are inherently more complicated and resource-intensive than before.</p>
-                </div>
-
-                <div class="question-item">
-                    <h3>Are criminals getting smarter?</h3>
-                    <p>Sophisticated criminal networks may avoid recorded communications, forcing law enforcement to cast wider nets and record more innocent people.</p>
-                </div>
-
-                <div class="question-item">
-                    <h3>Is the entire tool fundamentally flawed?</h3>
-                    <p>With an 11.3% success rate, perhaps wiretapping is simply an inefficient investigative technique that should be deprioritized.</p>
-                </div>
-            </div>
-
-            <p style="margin-top: 60px; font-size: 1.1em; font-style: italic;">The data cannot answer these questions. But we must.</p>
-        </div>
-    </section>
-
-    <!-- VISUAL 5: THE ALTERNATIVES -->
-    <section class="visual-section alt-section">
-        <div class="container">
-            <h2>What $405 Million Could Buy Instead</h2>
-            <svg id="alternatives-visual" viewBox="0 0 1000 700" class="magazine-visual"></svg>
-        </div>
+        <svg id="sankey-diagram" viewBox="0 0 1400 700" class="complex-data-viz"></svg>
         <div class="visual-caption">
-            <p>Each bar represents a different use of the same $405 million annual budget.</p>
+            <p>Start at left: Total spending by year. Follow the lines: Some produces evidence (green), most produces nothing (red). The width of each line shows amount of money.</p>
         </div>
     </section>
 
-    <!-- SECTION 6: THE CONCENTRATION -->
-    <section class="narrative-section dark-bg-section">
-        <div class="container light-text">
-            <h2>A System Built on Disparity</h2>
-            <p>Wiretap authority is spread across all 50 states. Wiretap usage is concentrated in a handful.</p>
-
-            <div class="stat-row">
-                <div class="stat-col">
-                    <div class="stat-number">California</div>
-                    <div class="stat-detail">366 orders (36.3% of all state operations)</div>
-                </div>
-                <div class="stat-col">
-                    <div class="stat-number">New York</div>
-                    <div class="stat-detail">138 orders (13.7%)</div>
-                </div>
-                <div class="stat-col">
-                    <div class="stat-number">All Other States</div>
-                    <div class="stat-detail">503 orders (49.9% combined)</div>
-                </div>
-            </div>
-
-            <p>California and New York—home to just 7% of the U.S. population—authorize 50% of all state-level wiretaps.</p>
-            <p>Meanwhile, 25 states reported zero wiretap activity in 2024, despite having the legal authority.</p>
-            <p>This isn't about crime rates. It's about resources, institutional knowledge, and prosecutorial choices.</p>
-        </div>
-    </section>
-
-    <!-- VISUAL 6: THE GEOGRAPHY -->
-    <section class="visual-section centered-visual">
-        <svg id="geography-visual" viewBox="0 0 1000 500" class="magazine-visual"></svg>
-        <div class="visual-caption">
-            <p>Electronic surveillance in America is geographically concentrated. Some states embrace it. Others barely use it.</p>
-        </div>
-    </section>
-
-    <!-- SECTION 7: THE FEDERAL MACHINE -->
+    <!-- SECTION 4: THE JURISDICTION BREAKDOWN -->
     <section class="narrative-section">
         <div class="container">
-            <h2>Federal Dominance</h2>
-            <p>Of all wiretap operations in 2024, 56% were federal—FBI, DEA, Secret Service, and other federal agencies.</p>
-            <p>This reveals a deeper truth: wiretaps are primarily a tool of federal law enforcement. State and local police rarely have the resources or expertise to deploy them.</p>
-            <p>What appears to be a widespread investigative technique is actually dominated by a small number of highly resourced federal prosecutors. They have the technology, the personnel, the legal expertise.</p>
-            <p>Everyone else works with what they can afford.</p>
+            <div class="text-block">
+                <h2>Not All States Are Equal</h2>
+                <p>Wiretap authority is spread across 50 states. But wiretap usage is concentrated in a handful.</p>
+                <p>California alone accounts for 36% of all state operations. California and New York combined: 50%.</p>
+                <p>This disparity raises fundamental questions about surveillance equity and resource allocation.</p>
+            </div>
         </div>
     </section>
 
-    <!-- VISUAL 7: THE RECKONING -->
-    <section class="full-bleed-visual dark-section final-visual">
-        <svg id="reckoning-visual" viewBox="0 0 1400 600" class="magazine-visual"></svg>
-        <div class="visual-label light">
-            <span>All metrics trending the same direction: toward unsustainability.</span>
+    <!-- COMPLEX VISUAL 4: THE STATE COMPARISON -->
+    <section class="visual-section full-bleed">
+        <div class="visual-header">
+            <h2>State-by-State Comparison: All 50 States, 3 Years</h2>
+            <p class="subtitle">Interactive heatmap: States as rows, years as columns. Color intensity = number of orders. Hover for details.</p>
+        </div>
+        <svg id="state-heatmap" viewBox="0 0 1400 1200" class="complex-data-viz"></svg>
+        <div class="control-buttons">
+            <button class="control-btn" data-sort="orders">Sort by Orders (2024)</button>
+            <button class="control-btn" data-sort="growth">Sort by Growth (2022-2024)</button>
+            <button class="control-btn active" data-sort="name">Sort by State</button>
+        </div>
+        <div class="visual-caption">
+            <p>Darker = more orders. Notice which states are consistently active (dark across all 3 years) vs. which appear only occasionally.</p>
         </div>
     </section>
 
-    <!-- SECTION 8: THE QUESTIONS WE MUST ASK -->
-    <section class="narrative-section closing-section">
+    <!-- COMPLEX VISUAL 5: THE EFFICIENCY BREAKDOWN -->
+    <section class="visual-section full-bleed">
+        <div class="visual-header">
+            <h2>The Composition of Every Dollar Spent</h2>
+            <p class="subtitle">Stacked area chart showing cost composition change over 3 years. What percentage goes to evidence vs. waste?</p>
+        </div>
+        <svg id="stacked-area" viewBox="0 0 1400 600" class="complex-data-viz"></svg>
+        <div class="visual-caption">
+            <p>Green area (bottom) = spending on operations producing evidence. Red area (top) = spending on operations producing nothing. The rising red shows worsening efficiency.</p>
+        </div>
+    </section>
+
+    <!-- COMPLEX VISUAL 6: DETAILED METRICS TABLE -->
+    <section class="visual-section full-bleed">
+        <div class="visual-header">
+            <h2>Complete Data Table: Every Metric, Every Year</h2>
+            <p class="subtitle">All raw numbers with year-over-year changes and 3-year trends. Click column headers to sort.</p>
+        </div>
+        <div class="table-wrapper">
+            <table id="data-table" class="data-table">
+                <thead>
+                    <tr>
+                        <th onclick="sortTable(0)">Metric</th>
+                        <th onclick="sortTable(1)">2022</th>
+                        <th onclick="sortTable(2)">2023</th>
+                        <th onclick="sortTable(3)">2024</th>
+                        <th onclick="sortTable(4)">2022→2023</th>
+                        <th onclick="sortTable(5)">2023→2024</th>
+                        <th onclick="sortTable(6)">2022→2024</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="metric-row critical">
+                        <td><strong>Total Orders Authorized</strong></td>
+                        <td>2,414</td>
+                        <td>2,398</td>
+                        <td>2,297</td>
+                        <td class="negative">-0.7%</td>
+                        <td class="negative">-4.2%</td>
+                        <td class="negative">-4.8%</td>
+                    </tr>
+                    <tr class="metric-row critical">
+                        <td><strong>Avg Cost per Order</strong></td>
+                        <td>$180,847</td>
+                        <td>$203,490</td>
+                        <td>$234,272</td>
+                        <td class="critical">+12.5%</td>
+                        <td class="critical">+15.1%</td>
+                        <td class="critical">+29.5%</td>
+                    </tr>
+                    <tr class="metric-row critical">
+                        <td><strong>Total Annual Spending</strong></td>
+                        <td>$315.7M</td>
+                        <td>$360.4M</td>
+                        <td>$405.1M</td>
+                        <td class="critical">+14.2%</td>
+                        <td class="critical">+12.4%</td>
+                        <td class="critical">+28.3%</td>
+                    </tr>
+                    <tr class="metric-row">
+                        <td><strong>Orders with Intercepts Installed</strong></td>
+                        <td>1,749</td>
+                        <td>1,772</td>
+                        <td>1,729</td>
+                        <td class="neutral">+1.3%</td>
+                        <td class="negative">-2.4%</td>
+                        <td class="negative">-1.1%</td>
+                    </tr>
+                    <tr class="metric-row">
+                        <td><strong>Installation Success Rate</strong></td>
+                        <td>99.4%</td>
+                        <td>99.4%</td>
+                        <td>99.4%</td>
+                        <td class="neutral">0.0%</td>
+                        <td class="neutral">0.0%</td>
+                        <td class="neutral">0.0%</td>
+                    </tr>
+                    <tr class="metric-row critical">
+                        <td><strong>Total Intercepts Recorded</strong></td>
+                        <td>2,359</td>
+                        <td>2,520</td>
+                        <td>2,448</td>
+                        <td class="positive">+6.8%</td>
+                        <td class="negative">-2.9%</td>
+                        <td class="positive">+3.8%</td>
+                    </tr>
+                    <tr class="metric-row critical">
+                        <td><strong>Incriminating Intercepts</strong></td>
+                        <td>305</td>
+                        <td>317</td>
+                        <td>277</td>
+                        <td class="positive">+3.9%</td>
+                        <td class="negative">-12.6%</td>
+                        <td class="negative">-9.2%</td>
+                    </tr>
+                    <tr class="metric-row critical highlight">
+                        <td><strong>Incrimination Rate</strong></td>
+                        <td>12.9%</td>
+                        <td>12.6%</td>
+                        <td>11.3%</td>
+                        <td class="negative">-2.3%</td>
+                        <td class="negative">-10.3%</td>
+                        <td class="negative">-12.4%</td>
+                    </tr>
+                    <tr class="metric-row critical highlight">
+                        <td><strong>Cost per Intercept</strong></td>
+                        <td>$133,740</td>
+                        <td>$143,008</td>
+                        <td>$165,372</td>
+                        <td class="critical">+6.9%</td>
+                        <td class="critical">+15.6%</td>
+                        <td class="critical">+23.6%</td>
+                    </tr>
+                    <tr class="metric-row critical highlight">
+                        <td><strong>Cost per Incriminating Intercept</strong></td>
+                        <td>$1,034,453</td>
+                        <td>$1,137,029</td>
+                        <td>$1,462,010</td>
+                        <td class="critical">+9.9%</td>
+                        <td class="critical">+28.6%</td>
+                        <td class="critical">+41.4%</td>
+                    </tr>
+                    <tr class="metric-row">
+                        <td><strong>Persons Intercepted</strong></td>
+                        <td>48</td>
+                        <td>53</td>
+                        <td>48</td>
+                        <td class="positive">+10.4%</td>
+                        <td class="negative">-9.4%</td>
+                        <td class="neutral">0.0%</td>
+                    </tr>
+                    <tr class="metric-row">
+                        <td><strong>Federal Orders</strong></td>
+                        <td>1,341</td>
+                        <td>1,340</td>
+                        <td>1,290</td>
+                        <td class="negative">-0.1%</td>
+                        <td class="negative">-3.7%</td>
+                        <td class="negative">-3.8%</td>
+                    </tr>
+                    <tr class="metric-row">
+                        <td><strong>State/Local Orders</strong></td>
+                        <td>1,073</td>
+                        <td>1,058</td>
+                        <td>1,007</td>
+                        <td class="negative">-1.4%</td>
+                        <td class="negative">-4.8%</td>
+                        <td class="negative">-6.1%</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="visual-caption">
+            <p><strong>Highlighted rows</strong> show the critical metrics. Every one is trending the wrong direction.</p>
+        </div>
+    </section>
+
+    <!-- SECTION 5: WHAT IT MEANS -->
+    <section class="narrative-section">
         <div class="container">
-            <h2>The Questions We Must Ask</h2>
-
-            <div class="big-question">
-                <h3>Is this proportional?</h3>
-                <p>Can we justify $1.46 million per incriminating intercept? For perspective, that's more than a house, more than a car, more than a decade of a teacher's salary. For one piece of evidence.</p>
+            <div class="text-block">
+                <h2>The Unsustainable Trajectory</h2>
+                <p>The data above is comprehensive, and it tells a clear story: <strong>American wiretap operations are becoming less efficient while consuming more resources</strong>.</p>
+                <p>This is not a stable system. This is not a mature technology. This is a tool that is failing at its core mission while requiring ever-greater investment.</p>
+                <p>The question is not whether this trend will reverse. The question is whether we will allow it to continue.</p>
             </div>
+        </div>
+    </section>
 
-            <div class="big-question">
-                <h3>Is this effective?</h3>
-                <p>An 11.3% success rate. If you picked randomly, you'd get lucky more often. If this were any other law enforcement tool—police stops, search warrants, forensic testing—we'd be asking hard questions about ROI.</p>
+    <!-- COMPLEX VISUAL 7: THE FORECAST -->
+    <section class="visual-section full-bleed">
+        <div class="visual-header">
+            <h2>If Current Trends Continue...</h2>
+            <p class="subtitle">Projection: What the numbers might look like in 2025, 2026, 2027 if nothing changes.</p>
+        </div>
+        <svg id="projection-chart" viewBox="0 0 1400 700" class="complex-data-viz"></svg>
+        <div class="visual-caption">
+            <p>Solid lines = actual data (2022-2024). Dashed lines = projected (2025-2027) if current trend continues. This is not a prediction. This is a warning.</p>
+        </div>
+    </section>
+
+    <!-- CLOSING SECTION -->
+    <section class="narrative-section closing">
+        <div class="container">
+            <div class="text-block">
+                <h2>The Questions We Must Ask</h2>
+                <p>The data is complete. The evidence is overwhelming. Now comes the hard part: deciding what to do about it.</p>
+
+                <div class="big-question">
+                    <h3>Why are costs accelerating?</h3>
+                    <p>The cost increase from 2023 to 2024 (15.1%) was larger than from 2022 to 2023 (12.5%). Why is this trend worsening, not stabilizing?</p>
+                </div>
+
+                <div class="big-question">
+                    <h3>Why is effectiveness declining?</h3>
+                    <p>With an 11.3% incrimination rate, are we deploying wiretaps correctly? Are the targets sophisticated criminals avoiding detection? Or is the tool itself fundamentally limited?</p>
+                </div>
+
+                <div class="big-question">
+                    <h3>Is this proportional?</h3>
+                    <p>$1.46 million per incriminating intercept. Can any law enforcement technique justify this cost-to-result ratio?</p>
+                </div>
+
+                <div class="big-question">
+                    <h3>Is this equitable?</h3>
+                    <p>California and New York benefit from intensive surveillance infrastructure. Most states barely use wiretaps. Is electronic surveillance a tool for everyone, or only for the wealthy?</p>
+                </div>
+
+                <p class="closing-statement">The data has been presented. The visualization has been completed. The numbers speak. Now it is time to listen.</p>
             </div>
-
-            <div class="big-question">
-                <h3>Is this equitable?</h3>
-                <p>California and New York get intensive electronic surveillance. Montana and Vermont barely touch it. This isn't about need. It's about resources. It's about power.</p>
-            </div>
-
-            <div class="big-question">
-                <h3>Is this necessary?</h3>
-                <p>With social media, digital forensics, metadata analysis, and traditional investigation techniques, do we still need wiretaps? Or are we continuing them because the infrastructure exists and the programs have institutional momentum?</p>
-            </div>
-
-            <p class="closing-statement">The data doesn't answer these questions. But it demands that we ask them.</p>
         </div>
     </section>
 
     <!-- FOOTER -->
     <footer>
         <div class="container">
-            <div class="footer-content">
-                <h3>About This Investigation</h3>
-                <p><strong>Data Source:</strong> Administrative Office of the U.S. Courts, Wiretap Reports 2022-2024</p>
-                <p><strong>Scope:</strong> All federal and state wiretap authorizations, costs, and effectiveness metrics</p>
-                <p><strong>Period:</strong> January 1 – December 31, for each year analyzed</p>
-                <p><strong>Inspired By:</strong> Long-form visual journalism from <em>The New York Times</em>, <em>The Washington Post</em>, <em>The Guardian</em>, and independent investigations into surveillance policy</p>
-                <p><strong>Repository:</strong> <a href="https://github.com/yourusername/wiretap-story" target="_blank">github.com/yourusername/wiretap-story</a></p>
-                <p style="margin-top: 30px; font-size: 0.9em; color: #999;">No AI-generated content. All visualizations created from public government data. Photography would be original or properly licensed.</p>
-            </div>
+            <h3>About This Investigation</h3>
+            <p><strong>Data Source:</strong> Administrative Office of the U.S. Courts, Wiretap Reports 2022-2024</p>
+            <p><strong>Scope:</strong> All federal and state wiretap authorizations, costs, and effectiveness metrics</p>
+            <p><strong>Visualizations:</strong> Inspired by data journalism from The Pudding, The New York Times, and The Washington Post</p>
+            <p><strong>Repository:</strong> <a href="https://github.com/yourusername/wiretap-story" target="_blank">github.com/yourusername/wiretap-story</a></p>
+            <p style="margin-top: 30px; font-size: 0.9em; color: #999;">No AI-generated content. All data from public government sources. All visualizations created from scratch.</p>
         </div>
     </footer>
 

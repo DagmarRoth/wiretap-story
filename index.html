@@ -3,196 +3,161 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Cost of Surveillance: An Investigation</title>
+    <title>WIRETAP WASTE — CLASSIFIED</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- IMMERSIVE HERO -->
-    <section class="hero-immersive">
-        <div class="hero-overlay"></div>
-        <div class="hero-bg"></div>
-        <div class="hero-text">
-            <div class="eyebrow">An Investigation</div>
-            <h1>The Cost of Surveillance</h1>
-            <p class="hero-subtitle">How America's most expensive law enforcement tool is getting less effective while costing more.</p>
-            <div class="scroll-hint">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <polyline points="6 9 12 15 18 9"></polyline>
-                </svg>
+    <!-- Scanline Overlay -->
+    <div id="scanlines"></div>
+
+    <!-- Section 1: Hero -->
+    <section class="hero section-block" id="s-hero">
+        <div class="hero-inner">
+            <div class="hero-eyebrow">SIGNAL DETECTED // CLASSIFIED</div>
+            <h1 class="hero-title glitch" data-text="TAP_WASTE">TAP_WASTE</h1>
+            <div class="hero-stat">
+                <span class="hero-stat-label">CONFIRMED WASTE // FY2024</span>
+                <span class="hero-stat-value">$258,000,000</span>
             </div>
+            <p class="hero-subtitle decrypt-text">
+                The United States spent $405 million on wiretapping in 2024.
+                Only 11.3% produced evidence. The rest — $258 million — was waste.
+            </p>
+            <div class="scroll-cue">SCROLL TO DECRYPT ▼</div>
         </div>
     </section>
 
-    <!-- SECTION 1: THE SETUP -->
-    <section class="narrative-section">
-        <div class="container">
-            <div class="text-block">
-                <h2>The Paradox</h2>
-                <p>In 2024, the United States government authorized 2,297 wiretap operations. The cost: <strong>$405 million</strong>.</p>
-                <p>Yet only 11.3% of the 2,448 intercepts recorded contained evidence relevant to criminal investigation.</p>
-                <p>This is not a one-year problem. It's a three-year deterioration. Costs are rising. Effectiveness is falling. And the trend is accelerating.</p>
+    <!-- Section 2: Divergence Narrative -->
+    <section class="narrative-section section-block" id="s-divergence">
+        <div class="narrative-inner">
+            <div class="section-eyebrow">// FINDING 01 — DIVERGENCE DETECTED</div>
+            <h2 class="section-title">TWO LINES. TWO STORIES.</h2>
+            <p class="section-body decrypt-text">From 2022 to 2024, the cost per wiretap order rose 29.5%—from $180,847
+            to $234,272. Over that same period, the incrimination rate fell from 12.9% to 11.3%.
+            The two trend lines cross and diverge. More money. Less evidence. The system is degrading.</p>
+        </div>
+    </section>
+
+    <!-- Section 2b: Divergence Chart -->
+    <section class="viz-section section-block" id="viz-divergence">
+        <div class="chart-annotation">
+            <span class="ann-red">■ COST PER ORDER (LEFT AXIS)</span>
+            <span class="ann-green">■ INCRIMINATION RATE (RIGHT AXIS)</span>
+        </div>
+        <svg id="divergence-chart" viewBox="0 0 1400 520" preserveAspectRatio="xMidYMid meet"></svg>
+        <div class="chart-caption decrypt-text">From 2022 to 2024: costs rose 29.5%. Effectiveness fell 12.4%. The lines cross and diverge.</div>
+    </section>
+
+    <!-- Section 3: Composition Narrative -->
+    <section class="narrative-section section-block" id="s-composition">
+        <div class="narrative-inner">
+            <div class="section-eyebrow">// FINDING 02 — SIGNAL COMPOSITION</div>
+            <h2 class="section-title">WHERE EVERY DOLLAR GOES</h2>
+            <p class="section-body decrypt-text">In 2024, $258 million—63.7% of all wiretap spending—went toward
+            recording conversations that produced zero evidence. This is not operational failure.
+            It is structural waste, baked into the authorization model itself.</p>
+        </div>
+    </section>
+
+    <!-- Section 3b: Composition Chart -->
+    <section class="viz-section section-block" id="viz-composition">
+        <div class="chart-annotation">
+            <span class="ann-green">■ EVIDENCE-PRODUCING</span>
+            <span class="ann-red">■ WASTE (NON-INCRIMINATING)</span>
+        </div>
+        <svg id="composition-chart" viewBox="0 0 1400 480" preserveAspectRatio="xMidYMid meet"></svg>
+        <div class="chart-caption decrypt-text">In 2024: $258M (63.7%) spent recording innocent conversations. Structural waste, not operational failure.</div>
+    </section>
+
+    <!-- Section 4: Cosmograph Narrative -->
+    <section class="narrative-section section-block" id="s-cosmograph">
+        <div class="narrative-inner">
+            <div class="section-eyebrow">// FINDING 03 — WASTE ANATOMY</div>
+            <h2 class="section-title">WHAT THEY WERE ACTUALLY RECORDING</h2>
+            <p class="section-body decrypt-text">Of the 88.7% of intercepts that produced no incriminating evidence,
+            the largest category—35%—consisted of personal calls unrelated to any criminal activity.
+            Nearly $90 million spent listening to people talk to their families.</p>
+        </div>
+    </section>
+
+    <!-- Section 4b: Cosmograph Chart -->
+    <section class="viz-section section-block" id="viz-cosmograph">
+        <svg id="cosmograph" viewBox="0 0 1400 600" preserveAspectRatio="xMidYMid meet"></svg>
+        <div class="chart-caption decrypt-text">Force-directed map of waste categories. Bubble area proportional to dollar amount.</div>
+    </section>
+
+    <!-- Section 5: Radial Scatter Narrative -->
+    <section class="narrative-section section-block" id="s-radial">
+        <div class="narrative-inner">
+            <div class="section-eyebrow">// FINDING 04 — GEOGRAPHIC DISTRIBUTION</div>
+            <h2 class="section-title">THE GEOGRAPHY OF WASTE</h2>
+            <p class="section-body decrypt-text">California alone accounts for $80 million in wasted wiretap spending—
+            five times more than any other state. The surveillance burden is not evenly distributed.
+            Three states generate 60% of all waste.</p>
+        </div>
+    </section>
+
+    <!-- Section 5b: Radial Scatter Chart -->
+    <section class="viz-section section-block" id="viz-radial">
+        <svg id="radial-chart" viewBox="0 0 1000 1000" preserveAspectRatio="xMidYMid meet"></svg>
+        <div class="chart-caption decrypt-text">Radial distance = waste amount. Bubble size = number of orders. CA dominates at $80M.</div>
+    </section>
+
+    <!-- Section 6: Sunburst Narrative -->
+    <section class="narrative-section section-block" id="s-sunburst">
+        <div class="narrative-inner">
+            <div class="section-eyebrow">// FINDING 05 — FEDERAL VS STATE BREAKDOWN</div>
+            <h2 class="section-title">WHO IS WASTING WHAT</h2>
+            <p class="section-body decrypt-text">Federal agencies—the FBI, DEA, and Secret Service—account for
+            $145 million of the waste. State and local agencies account for $113 million.
+            Both are listening to personal calls at nearly identical rates.</p>
+        </div>
+    </section>
+
+    <!-- Section 6b: Sunburst Chart -->
+    <section class="viz-section section-block" id="viz-sunburst">
+        <svg id="sunburst" viewBox="0 0 1000 700" preserveAspectRatio="xMidYMid meet"></svg>
+        <div class="chart-caption decrypt-text">Inner ring: Federal vs State waste. Outer ring: waste category breakdown within each sector.</div>
+    </section>
+
+    <!-- Section 7: Closing -->
+    <section class="closing-section section-block" id="s-closing">
+        <div class="terminal-block">
+            <div class="terminal-header">
+                <span class="t-dot red"></span>
+                <span class="t-dot amber"></span>
+                <span class="t-dot green"></span>
+                <span class="t-title">CLASSIFIED_FINDINGS.txt</span>
             </div>
-        </div>
-    </section>
-
-    <!-- VIZ 1: THE DIVERGENCE (ELEGANT LINE CHART WITH DUAL AXIS) -->
-    <section class="visual-section full-bleed">
-        <div class="visual-header">
-            <h2>Two Lines, Two Stories</h2>
-            <p class="subtitle">Watch what happens when you overlay cost and effectiveness. They tell opposite stories.</p>
-        </div>
-        <svg id="divergence-chart" viewBox="0 0 1400 650" class="elegant-viz"></svg>
-        <div class="visual-caption">
-            <p><strong>Red line (left axis):</strong> Average cost per order. <strong>Green line (right axis):</strong> Incrimination rate. Notice they cross and move in opposite directions.</p>
-        </div>
-    </section>
-
-    <!-- SECTION 2: WHAT IT MEANS -->
-    <section class="narrative-section">
-        <div class="container">
-            <div class="text-block">
-                <h2>Getting More Expensive, Less Effective</h2>
-                <p>From 2022 to 2024, costs rose 29.5%. Effectiveness fell 12.4%. This is not coincidence. This is the core problem.</p>
-                <p>When you're spending more and getting less, the system is broken. It's not a question of resources or deployment. It's a question of fundamental viability.</p>
-                <p>The question is not whether costs will continue rising. The question is whether we should allow it.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- VIZ 2: COMPOSITION (THE ONE YOU LIKE) -->
-    <section class="visual-section full-bleed">
-        <div class="visual-header">
-            <h2>Where Every Dollar Actually Goes</h2>
-            <p class="subtitle">Green = evidence-producing. Red = recording innocent conversations. Watch how red grows.</p>
-        </div>
-        <svg id="composition-chart" viewBox="0 0 1400 600" class="elegant-viz"></svg>
-        <div class="visual-caption">
-            <p>In 2024, $258 million (63.7%) was spent recording people who had done nothing wrong. It literally was waste.</p>
-        </div>
-    </section>
-
-    <!-- SECTION 3: THE DEEPER PROBLEM -->
-    <section class="narrative-section">
-        <div class="container">
-            <div class="text-block">
-                <h2>More Than Just Numbers</h2>
-                <p>The composition chart above shows something troubling: the amount of money spent on non-incriminating intercepts is growing, not shrinking.</p>
-                <p>In 2022, 36.4% of spending went to evidence-producing operations. By 2024, that fell to 36.3%. Nearly identical. But with higher overall spending, the absolute waste grew to nearly $260 million.</p>
-                <p>This suggests the problem isn't operational inefficiency that can be fixed. It's structural. Wiretaps may simply be inherently inefficient.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- VIZ 3: COST VS. EFFECTIVENESS BUBBLE CHART -->
-    <section class="visual-section full-bleed">
-        <div class="visual-header">
-            <h2>The Cost-Effectiveness Problem</h2>
-            <p class="subtitle">Each bubble is a year. Size = number of wiretap orders. Notice the relationship: more expensive, less effective.</p>
-        </div>
-        <svg id="bubble-chart" viewBox="0 0 1400 650" class="elegant-viz"></svg>
-        <div class="visual-caption">
-            <p>Ideal would be upper-left (cheap + effective). We're moving toward upper-right (expensive + ineffective).</p>
-        </div>
-    </section>
-
-    <!-- SECTION 4: STATE DISPARITIES -->
-    <section class="narrative-section">
-        <div class="container">
-            <div class="text-block">
-                <h2>Not All States Are Equal</h2>
-                <p>Wiretap authority exists in 50 states. But wiretap usage is concentrated.</p>
-                <p>California: 366 orders (36% of all state operations). New York: 138. Nevada: 93. Everyone else combined: 450.</p>
-                <p>This creates a two-tier system: some states have intensive electronic surveillance infrastructure, others barely use it at all.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- VIZ 4: STATE COMPARISON BUBBLE CHART -->
-    <section class="visual-section full-bleed">
-        <div class="visual-header">
-            <h2>The Leading States: Cost, Volume, and Effectiveness</h2>
-            <p class="subtitle">Each bubble is a state (2024 data). X-axis = average cost per order. Y-axis = effectiveness rate. Size = number of orders.</p>
-        </div>
-        <svg id="state-bubble-chart" viewBox="0 0 1400 650" class="elegant-viz"></svg>
-        <div class="visual-caption">
-            <p>Top states are spending differently and getting different results. California and New York dominate by volume, but Nevada and Colorado have higher effectiveness rates (though still low).</p>
-        </div>
-    </section>
-
-    <!-- SECTION 5: FEDERAL VS STATE -->
-    <section class="narrative-section">
-        <div class="container">
-            <div class="text-block">
-                <h2>Federal Dominance</h2>
-                <p>56% of wiretaps are federal (FBI, DEA, Secret Service). 44% are state and local.</p>
-                <p>This reveals a structural truth: electronic surveillance is primarily a tool of federal law enforcement. States and localities use wiretaps, but they don't have the same resources or expertise.</p>
-                <p>The system is built by and for the federal government.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- VIZ 5: FEDERAL VS STATE STACKED AREA -->
-    <section class="visual-section full-bleed">
-        <div class="visual-header">
-            <h2>The Federal-State Split</h2>
-            <p class="subtitle">How wiretap authorizations break down: federal (blue) vs. state/local (orange). Watch the proportions.</p>
-        </div>
-        <svg id="fed-state-chart" viewBox="0 0 1400 550" class="elegant-viz"></svg>
-        <div class="visual-caption">
-            <p>Despite state authority in all 50 states, federal operations account for 56% of the total. States authorize wiretaps, but the feds dominate usage.</p>
-        </div>
-    </section>
-
-    <!-- SECTION 6: THE CLOSING -->
-    <section class="narrative-section closing">
-        <div class="container">
-            <div class="text-block">
-                <h2>What the Data Reveals</h2>
-                <p>These five visualizations tell a complete story:</p>
-
-                <div class="point-list">
-                    <div class="point">
-                        <span class="point-number">1</span>
-                        <p><strong>Costs and effectiveness move in opposite directions.</strong> The system is degrading despite investment.</p>
-                    </div>
-
-                    <div class="point">
-                        <span class="point-number">2</span>
-                        <p><strong>63.7% of spending produces no evidence.</strong> The composition chart makes this impossible to ignore.</p>
-                    </div>
-
-                    <div class="point">
-                        <span class="point-number">3</span>
-                        <p><strong>We're moving toward more expensive, less effective operations.</strong> The bubble chart shows the trajectory.</p>
-                    </div>
-
-                    <div class="point">
-                        <span class="point-number">4</span>
-                        <p><strong>Wiretaps are concentrated geographically.</strong> A few states dominate. Many barely use them.</p>
-                    </div>
-
-                    <div class="point">
-                        <span class="point-number">5</span>
-                        <p><strong>This is fundamentally a federal tool.</strong> States have the authority. Federal agencies drive usage.</p>
-                    </div>
+            <div class="terminal-body">
+                <div class="finding decrypt-text">
+                    <span class="f-num">[01]</span>
+                    <span class="f-text">Costs and effectiveness move in OPPOSITE directions. System degrading despite investment.</span>
                 </div>
-
-                <p style="margin-top: 60px; font-size: 1.1em; font-weight: 600; color: var(--accent-red);">The data is clear. The question is whether we will act on it.</p>
+                <div class="finding decrypt-text">
+                    <span class="f-num">[02]</span>
+                    <span class="f-text">63.7% of all spending produces ZERO evidence. Structural waste, confirmed 2022-2024.</span>
+                </div>
+                <div class="finding decrypt-text">
+                    <span class="f-num">[03]</span>
+                    <span class="f-text">$90M spent on personal calls. Innocent conversations, billed to taxpayers.</span>
+                </div>
+                <div class="finding decrypt-text">
+                    <span class="f-num">[04]</span>
+                    <span class="f-text">California alone: $80M wasted. Three states generate 60% of total waste.</span>
+                </div>
+                <div class="finding decrypt-text">
+                    <span class="f-num">[05]</span>
+                    <span class="f-text">Federal and state agencies waste at identical rates. The model is broken at every level.</span>
+                </div>
+                <div class="terminal-prompt">
+                    <span class="blink">█</span>
+                    <span class="decrypt-text"> DATA SOURCE: Administrative Office of U.S. Courts, Wiretap Reports 2022-2024</span>
+                </div>
             </div>
         </div>
+        <div class="closing-statement decrypt-text">THE DATA IS CLEAR. THE QUESTION IS WHETHER WE WILL ACT ON IT.</div>
     </section>
-
-    <!-- FOOTER -->
-    <footer>
-        <div class="container">
-            <h3>About This Investigation</h3>
-            <p><strong>Data Source:</strong> Administrative Office of the U.S. Courts, Wiretap Reports 2022-2024</p>
-            <p><strong>Scope:</strong> All federal and state wiretap authorizations, costs, and effectiveness metrics</p>
-            <p><strong>Visualizations:</strong> Clean, purposeful designs that show multiple data dimensions elegantly</p>
-            <p><strong>Repository:</strong> <a href="https://github.com/yourusername/wiretap-story" target="_blank">github.com/yourusername/wiretap-story</a></p>
-            <p style="margin-top: 30px; font-size: 0.9em; color: #999;">No AI-generated content. All data from public government sources. All visualizations created from scratch.</p>
-        </div>
-    </footer>
 
     <script src="script.js"></script>
 </body>

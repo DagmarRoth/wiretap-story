@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fontMappings>
+  <description>Font substitution rules for Adobe Illustrator - Wiretap Story visualizations</description>
+  <generatedDate>2024-04-11</generatedDate>
+
+  <!-- Courier Family Substitutions -->
+  <fontMapping>
+    <missingFont>Courier New</missingFont>
+    <substitute>Helvetica</substitute>
+    <weight>normal</weight>
+    <style>normal</style>
+    <note>Standard font used in charts; substitute with Helvetica</note>
+  </fontMapping>
+
+  <fontMapping>
+    <missingFont>Courier-Bold</missingFont>
+    <substitute>Helvetica-Bold</substitute>
+    <weight>bold</weight>
+    <style>normal</style>
+    <note>Bold variant for titles and emphasis</note>
+  </fontMapping>
+
+  <fontMapping>
+    <missingFont>Courier</missingFont>
+    <substitute>Helvetica</substitute>
+    <weight>normal</weight>
+    <style>normal</style>
+    <note>Generic Courier reference</note>
+  </fontMapping>
+
+  <fontMapping>
+    <missingFont>Courier-Oblique</missingFont>
+    <substitute>Helvetica-Oblique</substitute>
+    <weight>normal</weight>
+    <style>italic</style>
+    <note>Italic variant if needed</note>
+  </fontMapping>
+
+  <fontMapping>
+    <missingFont>Courier-BoldOblique</missingFont>
+    <substitute>Helvetica-BoldOblique</substitute>
+    <weight>bold</weight>
+    <style>italic</style>
+    <note>Bold italic variant</note>
+  </fontMapping>
+
+  <!-- Helvetica as primary -->
+  <fontMapping>
+    <missingFont>Courier New Bold</missingFont>
+    <substitute>Helvetica-Bold</substitute>
+    <weight>bold</weight>
+    <style>normal</style>
+    <note>Alternative bold declaration</note>
+  </fontMapping>
+
+  <!-- Fallback chain -->
+  <fallbackChain>
+    <primary>Helvetica</primary>
+    <secondary>Arial</secondary>
+    <tertiary>Verdana</tertiary>
+    <generic>sans-serif</generic>
+  </fallbackChain>
+
+  <!-- Sample Text Examples -->
+  <samplesWithIssues>
+    <sample>
+      <text>Two Lines, Two Stories</text>
+      <font>Courier-Bold</font>
+      <substitute>Helvetica-Bold</substitute>
+      <issue>Missing bold Courier variant</issue>
+    </sample>
+    <sample>
+      <text>Cost rising, effectiveness falling</text>
+      <font>Courier</font>
+      <substitute>Helvetica</substitute>
+      <issue>Missing Courier conversion rule</issue>
+    </sample>
+  </samplesWithIssues>
+
+  <!-- Chart-specific rules -->
+  <chartRules>
+    <chart>
+      <name>Divergence Chart</name>
+      <file>chart_01_divergence.ai</file>
+      <fonts>
+        <font name="title" family="Courier New Bold" substitute="Helvetica-Bold" />
+        <font name="subtitle" family="Courier New" substitute="Helvetica" />
+        <font name="labels" family="Courier New" substitute="Helvetica" />
+      </fonts>
+    </chart>
+    <chart>
+      <name>Composition Chart</name>
+      <file>chart_02_composition.ai</file>
+      <fonts>
+        <font name="title" family="Courier New Bold" substitute="Helvetica-Bold" />
+        <font name="legend" family="Courier New" substitute="Helvetica" />
+      </fonts>
+    </chart>
+    <chart>
+      <name>Radial Scatter</name>
+      <file>chart_05_radial.ai</file>
+      <fonts>
+        <font name="labels" family="Courier New" substitute="Helvetica" />
+        <font name="annotations" family="Courier New" substitute="Helvetica" />
+      </fonts>
+    </chart>
+    <chart>
+      <name>Sunburst</name>
+      <file>sunburst_chart.ai</file>
+      <fonts>
+        <font name="title" family="Helvetica" substitute="Helvetica" />
+        <font name="labels" family="Helvetica" substitute="Helvetica" />
+      </fonts>
+    </chart>
+  </chartRules>
+
+  <!-- Instructions for Illustrator -->
+  <instructions>
+    <step>1. Open any chart file in Adobe Illustrator</step>
+    <step>2. Go to Type → Find/Replace Fonts</step>
+    <step>3. When prompted about missing fonts, select substitute from list above</step>
+    <step>4. Choose "Replace All" to apply substitution</step>
+    <step>5. Save file (fonts are now embedded)</step>
+  </instructions>
+
+</fontMappings>

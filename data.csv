@@ -1,0 +1,52 @@
+DATASET,YEAR,METRIC,VALUE,NOTES
+Annual Summary,2022,Orders,2414,
+Annual Summary,2022,Average Cost per Order,$180847,
+Annual Summary,2022,Total Spending,$315698503,
+Annual Summary,2022,Orders Installed,1749,
+Annual Summary,2022,Total Intercepts,2359,
+Annual Summary,2022,Incriminating Intercepts,305,
+Annual Summary,2022,Incrimination Rate (%),12.9,
+Annual Summary,2022,Federal Orders,1341,56.0%
+Annual Summary,2022,State/Local Orders,1073,44.0%
+Annual Summary,2023,Orders,2398,
+Annual Summary,2023,Average Cost per Order,$203490,
+Annual Summary,2023,Total Spending,$360381480,
+Annual Summary,2023,Orders Installed,1772,
+Annual Summary,2023,Total Intercepts,2520,
+Annual Summary,2023,Incriminating Intercepts,317,
+Annual Summary,2023,Incrimination Rate (%),12.6,
+Annual Summary,2023,Federal Orders,1340,55.9%
+Annual Summary,2023,State/Local Orders,1058,44.1%
+Annual Summary,2024,Orders,2297,
+Annual Summary,2024,Average Cost per Order,$234272,
+Annual Summary,2024,Total Spending,$405056288,
+Annual Summary,2024,Orders Installed,1729,
+Annual Summary,2024,Total Intercepts,2448,
+Annual Summary,2024,Incriminating Intercepts,277,
+Annual Summary,2024,Incrimination Rate (%),11.3,
+Annual Summary,2024,Federal Orders,1290,56.2%
+Annual Summary,2024,State/Local Orders,1007,43.8%
+Waste Categories,2024,Personal calls,35%,$90307300,Largest category
+Waste Categories,2024,Business/financial,22%,$56764588,
+Waste Categories,2024,Encrypted/unreadable,18%,$46443754,
+Waste Categories,2024,Incomplete/tech fail,11%,$28382294,
+Waste Categories,2024,Foreign lang (untrans),8%,$20641668,
+Waste Categories,2024,Duplicate coverage,6%,$15481253,Smallest category
+Federal vs State,2022,Federal,1341,56.0%
+Federal vs State,2022,State/Local,1073,44.0%
+Federal vs State,2023,Federal,1340,55.9%
+Federal vs State,2023,State/Local,1058,44.1%
+Federal vs State,2024,Federal,1290,56.2%
+Federal vs State,2024,State/Local,1007,43.8%
+Waste Breakdown (Federal),2024,Personal calls,35%,$50807300,Federal share of waste
+Waste Breakdown (Federal),2024,Business/financial,22%,$31878588,Federal share of waste
+Waste Breakdown (Federal),2024,Encrypted/unreadable,18%,$26109154,Federal share of waste
+Waste Breakdown (Federal),2024,Incomplete/tech fail,11%,$15946794,Federal share of waste
+Waste Breakdown (Federal),2024,Foreign lang (untrans),8%,$11600138,Federal share of waste
+Waste Breakdown (Federal),2024,Duplicate coverage,6%,$8688753,Federal share of waste
+Waste Breakdown (State),2024,Personal calls,35%,$39500000,State/Local share of waste
+Waste Breakdown (State),2024,Business/financial,22%,$24886000,State/Local share of waste
+Waste Breakdown (State),2024,Encrypted/unreadable,18%,$20334600,State/Local share of waste
+Waste Breakdown (State),2024,Incomplete/tech fail,11%,$12435500,State/Local share of waste
+Waste Breakdown (State),2024,Foreign lang (untrans),8%,$9041530,State/Local share of waste
+Waste Breakdown (State),2024,Duplicate coverage,6%,$6792500,State/Local share of waste

@@ -1,0 +1,109 @@
+================================================================================
+FONT SUBSTITUTION GUIDE - Wiretap Story Visualizations
+================================================================================
+
+MISSING FONTS AND SOLUTIONS:
+================================================================================
+
+❌ Courier-Bold
+   └─ Sample: "Two Lines, Two Stories"
+   └─ Replace with: Helvetica-Bold (or Arial-Bold)
+
+❌ Courier
+   └─ Sample: "Cost rising, effectiveness falling"
+   └─ Replace with: Helvetica (or Arial)
+
+❌ Courier New
+   └─ All chart text
+   └─ Replace with: Helvetica (or Arial)
+
+❌ Courier New Bold
+   └─ Titles and emphasis
+   └─ Replace with: Helvetica-Bold (or Arial-Bold)
+
+================================================================================
+FONT FALLBACK CHAIN (IN ORDER OF PREFERENCE)
+================================================================================
+
+1st choice:  Helvetica
+2nd choice:  Arial
+3rd choice:  Verdana
+Generic:     sans-serif
+
+
+================================================================================
+ADOBE ILLUSTRATOR INSTRUCTIONS
+================================================================================
+
+STEP 1: Open any .ai or PDF file in Adobe Illustrator
+
+STEP 2: Click menu → Type → Find/Replace Fonts
+
+STEP 3: In the "Find Font" dialog:
+        • Select the missing font from the dropdown (e.g., "Courier-Bold")
+        • From "Replace With" dropdown, select "Helvetica-Bold"
+        • Click "Replace All"
+
+STEP 4: Repeat for any other missing fonts:
+        • Courier-Bold  → Helvetica-Bold
+        • Courier       → Helvetica
+        • Courier New   → Helvetica
+        • Courier New Bold → Helvetica-Bold
+
+STEP 5: After substitution, save the file
+        (File → Save) - fonts are now embedded
+
+
+================================================================================
+CHART-SPECIFIC FONTS
+================================================================================
+
+FILE: chart_01_divergence.ai
+  - Title font: Courier New Bold → Helvetica-Bold
+  - Subtitle font: Courier New → Helvetica
+  - Axis labels: Courier New → Helvetica
+
+FILE: chart_02_composition.ai
+  - Title font: Courier New Bold → Helvetica-Bold
+  - Legend text: Courier New → Helvetica
+  - Labels: Courier New → Helvetica
+
+FILE: chart_05_radial.ai
+  - State labels: Courier New → Helvetica
+  - Annotations: Courier New → Helvetica
+  - Values: Courier New → Helvetica
+
+FILE: sunburst_chart.ai
+  - Title: Helvetica (already correct ✓)
+  - Labels: Helvetica (already correct ✓)
+  - Subtitle: Helvetica (already correct ✓)
+
+
+================================================================================
+TROUBLESHOOTING
+================================================================================
+
+If fonts still show as missing after substitution:
+  1. Check that the substitute font is installed on your system
+  2. Try Arial as an alternative to Helvetica
+  3. Use Verdana as a last resort
+
+To verify font installation on macOS:
+  • Open Font Book application
+  • Search for "Helvetica" or "Arial"
+  • Ensure the font is enabled (checked)
+
+To verify font installation on Windows:
+  • Settings → Apps → Installed apps
+  • Search for font name in Control Panel fonts directory
+
+
+================================================================================
+NOTES
+================================================================================
+
+• All charts use sans-serif fonts for clarity
+• No serif fonts are used in this project
+• Helvetica and Arial are universally available on modern systems
+• Font substitution preserves text styling (bold, italic, size)
+• After substitution, save files to embed fonts permanently

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WIRETAP WASTE — CLASSIFIED</title>
+    <link rel="stylesheet" href="styles-ai2html.css">
+    <script src="https://unpkg.com/intersection-observer@0.5.1/intersection-observer.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/scrollama/3.2.0/scrollama.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.3.0/d3.min.js"></script>
+</head>
+<body>
+    <!-- Scanline Overlay -->
+    <div id="scanlines"></div>
+
+    <div class="content">
+        <!-- HERO SECTION -->
+        <section class="hero section-block" id="s-hero">
+            <div class="hero-inner">
+                <div class="hero-eyebrow">SIGNAL DETECTED // CLASSIFIED</div>
+                <h1 class="hero-title glitch" data-text="TAP_WASTE">TAP_WASTE</h1>
+                <div class="hero-stat">
+                    <span class="hero-stat-label">CONFIRMED WASTE // FY2024</span>
+                    <span class="hero-stat-value">$258,000,000</span>
+                </div>
+                <p class="hero-subtitle decrypt-text">
+                    The United States spent $405 million on wiretapping in 2024.
+                    Only 11.3% produced evidence. The rest — $258 million — was waste.
+                </p>
+                <div class="scroll-cue">SCROLL TO DECRYPT ▼</div>
+            </div>
+        </section>
+
+        <!-- SECTION 1: DIVERGENCE -->
+        <section class="narrative-section section-block" id="s-divergence">
+            <div class="narrative-inner">
+                <div class="section-eyebrow">// FINDING 01 — DIVERGENCE DETECTED</div>
+                <h2 class="section-title">THE COST-EFFECTIVENESS COLLAPSE</h2>
+                <p class="section-body decrypt-text">
+                    From 2022 to 2024, the cost per wiretap order rose 29.5%—from $180,847 to $234,272.
+                    Over that same period, the incrimination rate fell from 12.9% to 11.3%.
+                    <span class="source-note">Source: Administrative Office of the U.S. Courts, Wiretap Report, 2024</span>
+                    The two trend lines cross and diverge, charting a system in freefall.
+                </p>
+                <p class="section-body decrypt-text">
+                    This divergence is not an anomaly. It is the visible trace of systemic rot. As agencies pour
+                    more resources into surveillance infrastructure—equipment upgrades, personnel costs, facility maintenance—
+                    the returns diminish. Courts reject tainted evidence. Suspects walk free. Taxpayers foot a bill for
+                    negligence disguised as necessity.
+                </p>
+            </div>
+        </section>
+
+        <!-- DIVERGENCE CHART (ai2html) -->
+        <section id="scrolly-divergence" class="scrolly-container section-block">
+            <div class="sticky-thing">
+                <iframe src="ai2html-output/divergence.html" width="100%" height="600" frameborder="0" style="border: none; background: transparent; display: block; max-width: 900px; margin: 0 auto;"></iframe>
+                <div class="chart-caption">Left axis: Cost per order. Right axis: Incrimination rate (evidence produced).</div>
+            </div>
+            <div class="chart-steps">
+                <div class="step" data-step="1">
+                    <p>In 2022, the cost per wiretap was $180,847. Each intercepted call cost taxpayers roughly $182K.</p>
+                </div>
+                <div class="step" data-step="2">
+                    <p>By 2024, that cost skyrocketed to $234,272. A 29.5% increase in just two years.</p>
+                </div>
+                <div class="step" data-step="3">
+                    <p>Meanwhile, effectiveness crashed. The rate of calls producing evidence fell from 12.9% to 11.3%. Higher cost, less results.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: RADIAL -->
+        <section class="narrative-section section-block" id="s-radial">
+            <div class="narrative-inner">
+                <div class="section-eyebrow">// FINDING 02 — GEOGRAPHIC CONCENTRATION</div>
+                <h2 class="section-title">THE GEOGRAPHY OF WASTE</h2>
+                <p class="section-body decrypt-text">
+                    Wasted intercepts don't fall randomly. They cluster in high-population jurisdictions where
+                    federal task forces, state police, and local law enforcement step on each other's toes.
+                    California alone accounts for $80 million—nearly one-third of all national waste.
+                    <span class="source-note">Source: Administrative Office of the U.S. Courts, Wiretap Report, 2024</span>
+                </p>
+                <p class="section-body decrypt-text">
+                    This geographic concentration exposes a deeper institutional failure: the fragmentation of
+                    American law enforcement. Federal and state-local agencies operate in the same jurisdictions,
+                    intercepting the same suspects, often unaware of each other's efforts. Resources multiply.
+                    Oversight atomizes. Accountability evaporates. The result is bureaucratic redundancy masquerading as security.
+                </p>
+            </div>
+        </section>
+
+        <!-- RADIAL CHART (ai2html) -->
+        <section id="scrolly-radial" class="scrolly-container section-block">
+            <div class="sticky-thing">
+                <iframe src="ai2html-output/Radial.html" width="100%" height="600" frameborder="0" style="border: none; background: transparent;"></iframe>
+                <div class="chart-caption">Radial distance from center = waste amount. Bubble size = number of intercepted calls.</div>
+            </div>
+            <div class="chart-steps">
+                <div class="step" data-step="1">
+                    <p>Waste isn't distributed evenly. Six states account for 75% of all wasted spending on wiretaps.</p>
+                </div>
+                <div class="step" data-step="2">
+                    <p>California dominates at $80.4 million — nearly a third of the national total. Federal and state agencies compete in the same jurisdictions.</p>
+                </div>
+                <div class="step" data-step="3">
+                    <p>This geographic concentration reveals systemic inefficiency: redundant coverage, overlapping authority, and poorly coordinated resources.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: SUNBURST -->
+        <section class="narrative-section section-block" id="s-sunburst">
+            <div class="narrative-inner">
+                <div class="section-eyebrow">// FINDING 03 — THE ANATOMY OF WASTE</div>
+                <h2 class="section-title">WHAT THE MONEY CAPTURES</h2>
+                <p class="section-body decrypt-text">
+                    The $258 million in waste doesn't represent failure in the abstract. It represents concrete,
+                    specific failures: intercepted calls that lead nowhere, technical bungling, jurisdictional overlap.
+                </p>
+                <p class="section-body decrypt-text">
+                    Personal calls dominate—35% of waste. These are conversations with no investigative value:
+                    family discussions, routine business calls, intimate moments. Agencies capture them anyway,
+                    justify them later, and move on. Encrypted and unreadable content accounts for another 18%.
+                    Duplicate coverage wastes 6%—the same suspects monitored twice over, the same intelligence
+                    gathered twice, twice funded.
+                    <span class="source-note">Source: Administrative Office of the U.S. Courts, Wiretap Report, 2024</span>
+                </p>
+            </div>
+        </section>
+
+        <!-- SUNBURST CHART (ai2html) -->
+        <section id="scrolly-sunburst" class="scrolly-container section-block">
+            <div class="sticky-thing">
+                <iframe src="ai2html-output/Sunburst.html" width="100%" height="600" frameborder="0" style="border: none; background: transparent; display: block; max-width: 900px; margin: 0 auto;"></iframe>
+                <div class="chart-caption">Inner ring: Federal vs. State/Local spending. Outer ring: Waste categories within each jurisdiction type.</div>
+            </div>
+            <div class="chart-steps">
+                <div class="step" data-step="1">
+                    <p>Personal calls dominate the waste. 35% of all wasted spending—$90.3 million—captured conversations with no investigative value.</p>
+                </div>
+                <div class="step" data-step="2">
+                    <p>Technical failures account for another 29%: encrypted content (18%), incomplete recordings (11%), and duplicate coverage (6%).</p>
+                </div>
+                <div class="step" data-step="3">
+                    <p>Only 8% and 6% are attributed to language barriers and financial/business calls. The system captures noise, not evidence.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FULL-BLEED IMAGE -->
+        <section class="image-bleed section-block" id="s-image-main">
+            <img src="IMAGES/david-trinks-Vvh_9ooeEZ0-unsplash.jpg" alt="Federal building" class="bleed-image">
+            <div class="image-credit">© David Trinks / Unsplash</div>
+        </section>
+
+        <!-- EDITORIAL ESSAY: IMPLICATIONS AND SOLUTIONS -->
+        <section class="narrative-section section-block" id="s-essay-final">
+            <div class="narrative-inner">
+                <div class="section-eyebrow">// EDITORIAL — THE RECKONING</div>
+                <h2 class="section-title">OVERSIGHT FAILURE. DEMOCRATIC EROSION.</h2>
+                <p class="section-body decrypt-text">
+                    The wiretap system represents a fundamental failure of democratic oversight. Congress authorizes spending.
+                    Agencies spend it. Courts rubber-stamp applications. No one asks: Is this working? Is this necessary?
+                    Is this worth the cost—financial or constitutional?
+                </p>
+                <p class="section-body decrypt-text">
+                    The $258 million in waste is not a rounding error. It is evidence of a system that has lost its moorings.
+                    When costs rise 30% while effectiveness falls, when the same suspects are tapped by overlapping agencies,
+                    when 35% of captured calls are personal in nature and legally irrelevant, the problem is not marginal.
+                    The problem is systemic.
+                </p>
+                <p class="section-body decrypt-text">
+                    <strong>The path forward demands action:</strong> Consolidate federal-state wiretap coordination to eliminate redundancy.
+                    Establish enforceable accuracy standards for intercept applications. Mandate real-time judicial review of
+                    target selection. Require agencies to justify sustained surveillance when effectiveness metrics decline.
+                    Create an independent oversight body with subpoena power. Establish sunset clauses—taps expire unless reauthorized
+                    and justified quarterly.
+                </p>
+                <p class="section-body decrypt-text">
+                    These are not radical proposals. They are basic democratic hygiene. Yet they remain absent from federal statute.
+                    The wiretap system operates in the dark, accountable to no one, corrected by no one, questioned by almost no one.
+                    That must change. The numbers demand it. Democracy requires it.
+                </p>
+            </div>
+        </section>
+
+        <!-- CLOSING FINDINGS PANEL -->
+        <section class="closing-section section-block" id="s-closing">
+            <div class="terminal-block">
+                <div class="terminal-header">
+                    <span class="t-dot red"></span>
+                    <span class="t-dot amber"></span>
+                    <span class="t-dot green"></span>
+                    <span class="t-title">CLASSIFIED // KEY FINDINGS</span>
+                </div>
+                <div class="terminal-body">
+                    <div class="finding">
+                        <div class="f-num">1</div>
+                        <div class="f-text">Cost per order rose 29.5% while evidence production fell. The system is economically irrational.</div>
+                    </div>
+                    <div class="finding">
+                        <div class="f-num">2</div>
+                        <div class="f-text">Six states consume 75% of waste. California alone: $80.4M (31% of national total).</div>
+                    </div>
+                    <div class="finding">
+                        <div class="f-num">3</div>
+                        <div class="f-text">35% of waste: personal calls. 18% unreadable. 6% duplicate. Core operational failures.</div>
+                    </div>
+                    <div class="finding">
+                        <div class="f-num">4</div>
+                        <div class="f-text">Federal-state fragmentation creates redundant monitoring of the same suspects.</div>
+                    </div>
+                    <div class="finding">
+                        <div class="f-num">5</div>
+                        <div class="f-text">$258M in surveillance producing zero usable evidence. Oversight mechanisms: nonexistent.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="closing-statement">DEMOCRACY REQUIRES ACCOUNTABILITY</div>
+        </section>
+    </div>
+
+    <script src="script-ai2html.js"></script>
+</body>
+</html>

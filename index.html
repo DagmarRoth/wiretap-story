@@ -3,166 +3,422 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WIRETAP WASTE — CLASSIFIED</title>
-    <link rel="stylesheet" href="styles-ai2html.css">
-    <script src="https://unpkg.com/intersection-observer@0.5.1/intersection-observer.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/scrollama/3.2.0/scrollama.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.3.0/d3.min.js"></script>
+    <title>WIRETAP WASTE — A $258M Story</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Scanline Overlay -->
-    <div id="scanlines"></div>
 
-    <div class="content">
-        <!-- HERO SECTION -->
-        <section class="hero section-block" id="s-hero">
-            <div class="hero-inner">
-                <div class="hero-eyebrow">SIGNAL DETECTED // CLASSIFIED</div>
-                <h1 class="hero-title glitch" data-text="TAP_WASTE">TAP_WASTE</h1>
-                <div class="hero-stat">
-                    <span class="hero-stat-label">CONFIRMED WASTE // FY2024</span>
-                    <span class="hero-stat-value">$258,000,000</span>
-                </div>
-                <p class="hero-subtitle decrypt-text">
-                    The United States spent $405 million on wiretapping in 2024.
-                    Only 11.3% produced evidence. The rest — $258 million — was waste.
-                </p>
-                <div class="scroll-cue">SCROLL TO DECRYPT ▼</div>
-            </div>
-        </section>
+<div class="progress-bar" id="progressBar" aria-hidden="true"></div>
+<div class="cursor" id="cursor" aria-hidden="true"></div>
+<div class="cursor-follower" id="cursorFollower" aria-hidden="true"></div>
+<div class="scanlines" aria-hidden="true"></div>
 
-        <!-- SECTION 1: DIVERGENCE -->
-        <section class="narrative-section section-block" id="s-divergence">
-            <div class="narrative-inner">
-                <div class="section-eyebrow">// FINDING 01 — DIVERGENCE DETECTED</div>
-                <h2 class="section-title">THE COST-EFFECTIVENESS COLLAPSE</h2>
-                <p class="section-body decrypt-text">
-                    From 2022 to 2024, the cost per wiretap order rose 29.5%—from $180,847 to $234,272. Over that same period, the incrimination rate fell from 12.9% to 11.3%.
-                    <span class="source-note">Source: Administrative Office of the U.S. Courts, Wiretap Report, 2024</span>
-                </p>
-                <p class="section-body decrypt-text">
-                    The two trend lines cross and diverge, charting a system in freefall. This divergence is not an anomaly but the visible trace of systemic rot. As agencies pour more resources into surveillance infrastructure, equipment upgrades, and personnel costs, the returns diminish. Courts reject tainted evidence. Suspects walk free. Taxpayers foot a bill for negligence disguised as necessity.
-                </p>
-            </div>
-        </section>
+<!-- ================================================================
+     HERO
+================================================================ -->
+<section class="hero" id="hero">
+    <div class="hero-bg-stream" id="dataStream" aria-hidden="true"></div>
 
-        <!-- DIVERGENCE CHART (ai2html) -->
-        <section id="scrolly-divergence" class="scrolly-container section-block">
-            <div class="sticky-thing">
-                <iframe src="ai2html-output/divergence.html" width="100%" height="600" frameborder="0" style="border: none; background: transparent; display: block; max-width: 900px; margin: 0 auto;"></iframe>
-                <div class="chart-caption">Left axis: Cost per order. Right axis: Incrimination rate (evidence produced).</div>
-            </div>
-            <div class="chart-steps">
-                <div class="step" data-step="1">
-                    <p>In 2022, the cost per wiretap was $180,847. Each intercepted call cost taxpayers roughly $182K.</p>
-                </div>
-                <div class="step" data-step="2">
-                    <p>By 2024, that cost skyrocketed to $234,272. A 29.5% increase in just two years.</p>
-                </div>
-                <div class="step" data-step="3">
-                    <p>Meanwhile, effectiveness crashed. The rate of calls producing evidence fell from 12.9% to 11.3%. Higher cost, less results.</p>
-                </div>
-            </div>
-        </section>
+    <div class="hero-content">
+        <div class="classified-stamp" aria-label="Classified">CLASSIFIED</div>
 
-        <!-- SECTION 2: RADIAL -->
-        <section class="narrative-section section-block" id="s-radial">
-            <div class="narrative-inner">
-                <div class="section-eyebrow">// FINDING 02 — GEOGRAPHIC CONCENTRATION</div>
-                <h2 class="section-title">THE GEOGRAPHY OF WASTE</h2>
-                <p class="section-body decrypt-text">
-                    Wasted intercepts don't fall randomly. They cluster in high-population jurisdictions where federal task forces, state police, and local law enforcement step on each other's toes. California alone accounts for $80 million, nearly one-third of all national waste.
-                    <span class="source-note">Source: Administrative Office of the U.S. Courts, Wiretap Report, 2024</span>
-                </p>
-                <p class="section-body decrypt-text">
-                    This geographic concentration exposes a deeper institutional failure: the fragmentation of American law enforcement. Federal and state-local agencies operate in the same jurisdictions, intercepting the same suspects, often unaware of each other's efforts. Resources multiply. Oversight atomizes. Accountability evaporates. The result is bureaucratic redundancy masquerading as security.
-                    <span class="source-note">Source: National Law Review, Not Every Wiretap Claim Belongs in Federal Court, 2026</span>
-                </p>
-            </div>
-        </section>
+        <p class="hero-eyebrow">
+            <span class="signal-dot" aria-hidden="true"></span>
+            LIVE INTERCEPT — U.S. WIRETAP PROGRAM 2024
+        </p>
 
-        <!-- RADIAL CHART (ai2html) -->
-        <section id="scrolly-radial" class="scrolly-container section-block">
-            <div class="sticky-thing">
-                <iframe src="ai2html-output/Radial.html" width="100%" height="600" frameborder="0" style="border: none; background: transparent;"></iframe>
-                <div class="chart-caption">Radial distance from center = waste amount. Bubble size = number of intercepted calls.</div>
-            </div>
-            <div class="chart-steps">
-                <div class="step" data-step="1">
-                    <p>Waste isn't distributed evenly. Six states account for 75% of all wasted spending on wiretaps.</p>
-                </div>
-                <div class="step" data-step="2">
-                    <p>California dominates at $80.4 million — nearly a third of the national total. Federal and state agencies compete in the same jurisdictions.</p>
-                </div>
-                <div class="step" data-step="3">
-                    <p>This geographic concentration reveals systemic inefficiency: redundant coverage, overlapping authority, and poorly coordinated resources.</p>
-                </div>
-            </div>
-        </section>
+        <h1 class="hero-title" aria-label="Wiretap Waste">
+            <span class="title-line">WIRE</span><span class="title-line accent">TAP</span><span class="title-line">WASTE</span>
+        </h1>
 
-        <!-- SECTION 3: SUNBURST -->
-        <section class="narrative-section section-block" id="s-sunburst">
-            <div class="narrative-inner">
-                <div class="section-eyebrow">// FINDING 03 — THE ANATOMY OF WASTE</div>
-                <h2 class="section-title">WHAT THE MONEY CAPTURES</h2>
-                <p class="section-body decrypt-text">
-                    The $258 million in waste doesn't represent failure in the abstract. It represents concrete, specific failures: intercepted calls that lead nowhere, technical bungling, jurisdictional overlap.
-                </p>
-                <p class="section-body decrypt-text">
-                    Personal calls dominate, representing 35% of waste. These are conversations with no investigative value: family discussions, routine business calls, intimate moments. Agencies capture them anyway, justify them later, and move on. Encrypted and unreadable content accounts for another 18%. Duplicate coverage wastes 6%, the same suspects monitored twice over, the same worthless intelligence gathered twice, twice funded.
-                </p>
+        <div class="hero-stat-block">
+            <div class="hero-stat-row">
+                <span class="stat-currency" aria-hidden="true">$</span>
+                <span class="stat-number" id="heroCounter" aria-label="258 million dollars">000,000,000</span>
             </div>
-        </section>
+            <span class="stat-label">in documented surveillance waste — 2024</span>
+        </div>
 
-        <!-- SUNBURST CHART (ai2html) -->
-        <section id="scrolly-sunburst" class="scrolly-container section-block">
-            <div class="sticky-thing">
-                <iframe src="ai2html-output/Sunburst.html" width="100%" height="600" frameborder="0" style="border: none; background: transparent; display: block; max-width: 900px; margin: 0 auto;"></iframe>
-                <div class="chart-caption">Inner ring: Federal vs. State/Local spending. Outer ring: Waste categories within each jurisdiction type.</div>
+        <div class="hero-waveform" aria-hidden="true">
+            <div class="waveform clean">
+                <span></span><span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span>
             </div>
-            <div class="chart-steps">
-                <div class="step" data-step="1">
-                    <p>Personal calls dominate the waste. 35% of all wasted spending—$90.3 million—captured conversations with no investigative value.</p>
+            <div class="tap-badge">
+                <div class="tap-badge-label">TAP</div>
+                <div class="tap-badge-line"></div>
+            </div>
+            <div class="waveform intercepted">
+                <span></span><span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+
+        <div class="hero-scroll-cue">
+            <div class="scroll-line"></div>
+            <span>SCROLL TO INTERCEPT</span>
+        </div>
+    </div>
+</section>
+
+<!-- ================================================================
+     ACT I — THE INTERCEPT
+================================================================ -->
+<section class="act-header" id="act1">
+    <div class="act-label">— ACT I —</div>
+    <h2 class="act-title">THE<br>INTERCEPT</h2>
+    <p class="act-sub">Every phone call. Every signal. A third party joins — uninvited, invisible, federally authorized.</p>
+</section>
+
+<section class="scrolly-section" id="scrolly-intercept">
+    <div class="scrolly-sticky">
+        <div class="intercept-stage" id="interceptStage">
+            <!-- Phone A -->
+            <div class="phone-node left" id="phoneA">
+                <div class="phone-ring"></div>
+                <div class="phone-icon-wrap">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.81 19.79 19.79 0 01.01 2.18C0 1.08.87 0 2 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
                 </div>
-                <div class="step" data-step="2">
-                    <p>Technical failures account for another 29%: encrypted content (18%), incomplete recordings (11%), and duplicate coverage (6%).</p>
-                </div>
-                <div class="step" data-step="3">
-                    <p>Only 8% and 6% are attributed to language barriers and financial/business calls. The system captures noise, not evidence.</p>
+                <span class="phone-label">PARTY A</span>
+                <span class="call-status" id="statusA">● ACTIVE CALL</span>
+            </div>
+
+            <!-- Wire SVG -->
+            <div class="wire-wrap">
+                <svg class="wire-svg" id="wireSVG" viewBox="0 0 320 100" preserveAspectRatio="none" aria-hidden="true">
+                    <!-- Baseline wire -->
+                    <path class="wire-base" d="M0,50 L320,50"/>
+                    <!-- Animated signal -->
+                    <path class="wire-signal" id="wireSignal" d="M0,50 C20,30 40,70 60,50 C80,30 100,70 120,50 C140,30 160,70 180,50 C200,30 220,70 240,50 C260,30 280,70 300,50 L320,50"/>
+                    <!-- Tap marker (hidden until step 2) -->
+                    <g id="tapMarker" class="tap-marker" opacity="0">
+                        <circle cx="160" cy="50" r="14" class="tap-circle"/>
+                        <text x="160" y="54" text-anchor="middle" class="tap-text">TAP</text>
+                        <!-- Branch down -->
+                        <line x1="160" y1="64" x2="160" y2="100" class="tap-branch"/>
+                        <circle cx="160" cy="100" r="4" class="tap-branch-end"/>
+                    </g>
+                </svg>
+                <!-- Flowing particles -->
+                <div class="signal-particles" id="signalParticles" aria-hidden="true">
+                    <span></span><span></span><span></span><span></span>
                 </div>
             </div>
-        </section>
 
-        <!-- EDITORIAL ESSAY: IMPLICATIONS AND SOLUTIONS -->
-        <section class="narrative-section section-block" id="s-essay-final">
-            <div class="narrative-inner">
-                <div class="section-eyebrow">// THE RECKONING</div>
-                <h2 class="section-title">OVERSIGHT FAILURE. DEMOCRATIC EROSION.</h2>
-                <p class="section-body decrypt-text">
-                    The wiretap system represents a fundamental failure of democratic oversight. Congress authorizes spending. Agencies spend it. Courts rubber-stamp applications. But no one questions its efficiency or return.
-                </p>
-                <p class="section-body decrypt-text">
-                    The $258 million is evidence of a system that has lost its foundation. When costs rise 30% while effectiveness falls, when the same suspects are tapped by overlapping agencies, when 35% of captured calls are personal in nature and legally irrelevant, the problem is not marginal. The problem is systemic.
-                </p>
+            <!-- Phone B -->
+            <div class="phone-node right" id="phoneB">
+                <div class="phone-ring"></div>
+                <div class="phone-icon-wrap">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.81 19.79 19.79 0 01.01 2.18C0 1.08.87 0 2 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
+                </div>
+                <span class="phone-label">PARTY B</span>
+                <span class="call-status" id="statusB">● ACTIVE CALL</span>
             </div>
-        </section>
 
-        <!-- FULL-BLEED IMAGE -->
-        <section class="image-bleed section-block" id="s-image-main">
-            <img src="IMAGES/david-trinks-Vvh_9ooeEZ0-unsplash.jpg" alt="Federal building" class="bleed-image">
-            <div class="image-credit">© David Trinks / Unsplash</div>
-        </section>
-
-        <!-- FOOTER -->
-        <footer class="footer section-block">
-            <div class="footer-inner">
-                <p><a href="https://github.com/DagmarRoth/wiretap-story" target="_blank">Data and code on GitHub</a></p>
-                <p><a href="https://www.theguardian.com/world/ng-interactive/2026/feb/20/a-war-foretold-cia-mi6-putin-ukraine-plans-russia" target="_blank">Inspiration: The Guardian — A War Foretold</a></p>
+            <!-- Monitoring readout (shown after tap) -->
+            <div class="monitor-readout" id="monitorReadout">
+                <div class="monitor-label">MONITORING STATION</div>
+                <div class="monitor-lines">
+                    <div class="monitor-line" id="ml1"></div>
+                    <div class="monitor-line" id="ml2"></div>
+                    <div class="monitor-line" id="ml3"></div>
+                </div>
             </div>
-        </footer>
 
+            <!-- Rolling stat display -->
+            <div class="stage-stat" id="stageStat">
+                <div class="stage-stat-val" id="stageStatVal">4,740</div>
+                <div class="stage-stat-label" id="stageStatLabel">wiretap orders in 2024</div>
+            </div>
+        </div>
     </div>
 
-    <script src="script-ai2html.js"></script>
+    <div class="scrolly-steps">
+        <div class="step" data-step="0" data-scene="intercept">
+            <div class="step-inner">
+                <div class="step-num">01</div>
+                <h3>A CALL IS PLACED</h3>
+                <p>Two parties connect. The conversation is private — or so they believe. The signal travels through copper wire and fiber, through towers and switches.</p>
+            </div>
+        </div>
+        <div class="step" data-step="1" data-scene="intercept">
+            <div class="step-inner">
+                <div class="step-num">02</div>
+                <h3>THE TAP IS APPLIED</h3>
+                <p>A court order is issued. Somewhere in the infrastructure, a device splits the signal. The government joins the call. Unannounced. Invisible. Federally authorized.</p>
+            </div>
+        </div>
+        <div class="step" data-step="2" data-scene="intercept">
+            <div class="step-inner">
+                <div class="step-num">03</div>
+                <h3>4,740 TAPS IN 2024</h3>
+                <p>Federal and state courts authorized 4,740 wiretap orders in 2024. Each one costs $234,272 on average. The total: <strong class="hi-green">$405 million</strong>.</p>
+            </div>
+        </div>
+        <div class="step" data-step="3" data-scene="intercept">
+            <div class="step-inner">
+                <div class="step-num">04</div>
+                <h3>$405 MILLION SPENT</h3>
+                <p>That is what the United States spent on wiretapping in 2024 alone. The question is not whether they can afford to listen. It is whether listening is working.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ================================================================
+     STAT BREAK — 88.7%
+================================================================ -->
+<section class="stat-break">
+    <div class="stat-break-inner">
+        <div class="stat-break-eyebrow">BUT HERE'S THE PROBLEM</div>
+        <div class="stat-break-big">
+            <span class="count-up" data-target="88.7" data-decimals="1">0</span>%
+        </div>
+        <p class="stat-break-sub">of all intercepted communications produced<br><strong>zero incriminating evidence</strong></p>
+    </div>
+</section>
+
+<!-- ================================================================
+     ACT II — THE DIVERGENCE
+================================================================ -->
+<section class="act-header" id="act2">
+    <div class="act-label">— ACT II —</div>
+    <h2 class="act-title">THE<br>DIVERGENCE</h2>
+    <p class="act-sub">Costs climb. Evidence falls. Three years of data tell a single, damning story.</p>
+</section>
+
+<section class="scrolly-section" id="scrolly-divergence">
+    <div class="scrolly-sticky">
+        <div class="chart-frame">
+            <div class="chart-eyebrow">COST vs. EFFECTIVENESS — 2022–2024</div>
+            <div class="divergence-chart-wrap">
+                <svg id="divergenceSVG" viewBox="0 0 540 280" width="100%" aria-label="Line chart showing cost per order rising and incrimination rate falling from 2022 to 2024">
+                    <!-- Built by JS -->
+                </svg>
+            </div>
+            <div class="chart-legend">
+                <div class="legend-item">
+                    <span class="legend-swatch red"></span>
+                    <span>Cost per order ($)</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-swatch green"></span>
+                    <span>Incrimination rate (%)</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="scrolly-steps">
+        <div class="step" data-step="0" data-chart="divergence">
+            <div class="step-inner">
+                <div class="step-num">05</div>
+                <h3>2022: THE BASELINE</h3>
+                <p>Cost per wiretap: <strong class="hi-red">$180,847</strong>. Incrimination rate: <strong class="hi-green">12.9%</strong>. A system that was already expensive and already not working well.</p>
+            </div>
+        </div>
+        <div class="step" data-step="1" data-chart="divergence">
+            <div class="step-inner">
+                <div class="step-num">06</div>
+                <h3>2023: COSTS ACCELERATE</h3>
+                <p>Cost jumps to <strong class="hi-red">$204,516</strong> — a 13% increase in one year. The incrimination rate edges down to <strong class="hi-red">11.8%</strong>. The lines begin to diverge.</p>
+            </div>
+        </div>
+        <div class="step" data-step="2" data-chart="divergence">
+            <div class="step-inner">
+                <div class="step-num">07</div>
+                <h3>2024: THE GAP WIDENS</h3>
+                <p>Cost reaches <strong class="hi-red">$234,272</strong> — up 29.5% in two years. Incrimination falls to <strong class="hi-red">11.3%</strong>. You are paying more to capture less. Every. Single. Year.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ================================================================
+     PULL QUOTE
+================================================================ -->
+<section class="pull-quote-section">
+    <figure class="pull-quote">
+        <div class="pq-mark" aria-hidden="true">&ldquo;</div>
+        <blockquote>
+            The government spent <em>more money</em> to capture <em>less evidence</em> — three years running.
+        </blockquote>
+        <figcaption>Administrative Office of U.S. Courts, 2024 Wiretap Report</figcaption>
+    </figure>
+</section>
+
+<!-- ================================================================
+     ACT III — THE GEOGRAPHY
+================================================================ -->
+<section class="act-header" id="act3">
+    <div class="act-label">— ACT III —</div>
+    <h2 class="act-title">THE<br>GEOGRAPHY</h2>
+    <p class="act-sub">Surveillance waste doesn't spread evenly. It concentrates. Six states account for 75% of the damage.</p>
+</section>
+
+<section class="scrolly-section" id="scrolly-geo">
+    <div class="scrolly-sticky">
+        <div class="chart-frame">
+            <div class="chart-eyebrow">WASTE BY STATE — TOP 6 (2024, $M)</div>
+            <div class="state-bars-wrap" id="stateBarsWrap">
+                <!-- Built by JS -->
+            </div>
+            <div class="geo-total-note" id="geoTotalNote">
+                <span class="geo-note-val">$205.6M</span> of $258M total — <span class="hi-red">79.7%</span> of all waste
+            </div>
+        </div>
+    </div>
+
+    <div class="scrolly-steps">
+        <div class="step" data-step="0" data-chart="geo">
+            <div class="step-inner">
+                <div class="step-num">08</div>
+                <h3>SIX STATES. 80% OF WASTE.</h3>
+                <p>Wasted intercepts cluster where federal and state agencies overlap — in high-population jurisdictions where multiple law enforcement bodies operate without coordination.</p>
+            </div>
+        </div>
+        <div class="step" data-step="1" data-chart="geo">
+            <div class="step-inner">
+                <div class="step-num">09</div>
+                <h3>CALIFORNIA: $80.4M</h3>
+                <p>California alone accounts for <strong class="hi-red">31%</strong> of national wiretap waste. The FBI, DEA, state police, and local task forces operate in the same cities, tapping the same suspects, billing separately.</p>
+            </div>
+        </div>
+        <div class="step" data-step="2" data-chart="geo">
+            <div class="step-inner">
+                <div class="step-num">10</div>
+                <h3>THE REDUNDANCY MACHINE</h3>
+                <p>When two agencies tap the same suspect independently, each pays full price. The evidence — if any — is filed twice. The waste is billed twice. The suspect's privacy is violated twice.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ================================================================
+     ACT IV — THE ANATOMY
+================================================================ -->
+<section class="act-header" id="act4">
+    <div class="act-label">— ACT IV —</div>
+    <h2 class="act-title">THE<br>ANATOMY</h2>
+    <p class="act-sub">$258 million. Here is exactly what it bought — and why it produced nothing.</p>
+</section>
+
+<section class="scrolly-section" id="scrolly-anatomy">
+    <div class="scrolly-sticky">
+        <div class="chart-frame">
+            <div class="chart-eyebrow">ANATOMY OF $258M WASTE</div>
+            <div class="waste-donut-wrap" id="wasteDonut">
+                <svg id="donutSVG" viewBox="0 0 280 280" width="100%" aria-label="Donut chart showing breakdown of $258M in wiretap waste">
+                    <!-- Built by JS -->
+                </svg>
+                <div class="donut-center">
+                    <div class="donut-center-val" id="donutCenterVal">$258M</div>
+                    <div class="donut-center-label">total waste</div>
+                </div>
+            </div>
+            <div class="waste-legend" id="wasteLegend">
+                <!-- Built by JS -->
+            </div>
+        </div>
+    </div>
+
+    <div class="scrolly-steps">
+        <div class="step" data-step="0" data-chart="anatomy">
+            <div class="step-inner">
+                <div class="step-num">11</div>
+                <h3>$258 MILLION. ZERO RESULTS.</h3>
+                <p>This is the documented waste — 2024 alone. More than a quarter-billion dollars in surveillance that led to nothing actionable. Let us break it down.</p>
+            </div>
+        </div>
+        <div class="step" data-step="1" data-chart="anatomy">
+            <div class="step-inner">
+                <div class="step-num">12</div>
+                <h3>35% — PERSONAL CALLS</h3>
+                <p><strong class="hi-red">$90.3M</strong> spent intercepting personal conversations — family calls, social arrangements, the texture of ordinary life. Not criminal. Not relevant. Billed in full.</p>
+            </div>
+        </div>
+        <div class="step" data-step="2" data-chart="anatomy">
+            <div class="step-inner">
+                <div class="step-num">13</div>
+                <h3>18% — ENCRYPTED DATA</h3>
+                <p><strong class="hi-red">$46.4M</strong> spent on content the government could not read. End-to-end encryption defeated the tap entirely — but the invoice went through regardless.</p>
+            </div>
+        </div>
+        <div class="step" data-step="3" data-chart="anatomy">
+            <div class="step-inner">
+                <div class="step-num">14</div>
+                <h3>6% — DUPLICATE COVERAGE</h3>
+                <p><strong class="hi-red">$15.5M</strong> in redundant taps — multiple agencies surveilling the exact same targets simultaneously. The same silence, purchased twice.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ================================================================
+     VERDICT
+================================================================ -->
+<section class="verdict-section" id="verdict">
+    <div class="verdict-inner">
+        <div class="verdict-stamp">FINDINGS</div>
+        <h2 class="verdict-title">OVERSIGHT<br>FAILURE.<br>DEMOCRATIC<br>EROSION.</h2>
+        <div class="verdict-copy">
+            <p>The U.S. wiretap program is not merely wasteful — it is structurally broken. Courts authorize surveillance that agencies duplicate. Budgets grow despite diminishing returns. Privacy is violated at industrial scale. Evidence is not.</p>
+            <p>The $258 million wasted in 2024 is not an anomaly. It is the system working exactly as designed: no accountability, no reform, no end in sight.</p>
+        </div>
+        <div class="verdict-stats-grid">
+            <div class="vs-card">
+                <div class="vs-val">$405M</div>
+                <div class="vs-label">Total 2024 spend</div>
+            </div>
+            <div class="vs-card danger">
+                <div class="vs-val">$258M</div>
+                <div class="vs-label">Documented waste</div>
+            </div>
+            <div class="vs-card">
+                <div class="vs-val">29.5%</div>
+                <div class="vs-label">Cost increase 2022–24</div>
+            </div>
+            <div class="vs-card danger">
+                <div class="vs-val">11.3%</div>
+                <div class="vs-label">Evidence rate 2024</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Full-bleed image -->
+<figure class="full-bleed-fig">
+    <img src="IMAGES/david-trinks-Vvh_9ooeEZ0-unsplash.jpg" alt="Federal building exterior" loading="lazy">
+    <figcaption>A federal building. Behind these walls, $405 million in surveillance was authorized in 2024. © David Trinks / Unsplash</figcaption>
+</figure>
+
+<!-- ================================================================
+     FOOTER
+================================================================ -->
+<footer class="site-footer">
+    <div class="footer-inner">
+        <div class="footer-source">
+            <div class="footer-eyebrow">DATA SOURCE</div>
+            <p>Administrative Office of the United States Courts — 2022, 2023 &amp; 2024 Wiretap Reports. Public domain.</p>
+        </div>
+        <div class="footer-links">
+            <a href="https://github.com/DagmarRoth/wiretap-story" target="_blank" rel="noopener">GitHub</a>
+            <span class="sep">—</span>
+            <a href="https://www.theguardian.com/world/ng-interactive/2026/feb/20/a-war-foretold-cia-mi6-putin-ukraine-plans-russia" target="_blank" rel="noopener">Inspiration: The Guardian</a>
+        </div>
+        <div class="footer-sig">
+            <span class="signal-dot" aria-hidden="true"></span>
+            WIRETAP WASTE © 2024
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/scrollama/3.2.0/scrollama.min.js"></script>
+<script src="script.js"></script>
 </body>
 </html>

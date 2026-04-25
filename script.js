@@ -224,12 +224,19 @@ function buildDivergenceChart() {
         g.appendChild(c);
         if (i !== 1) {
             const lbl = el('text', { x: xOf(i), y: yRate(v) - 11, 'text-anchor': 'middle',
-                fill: '#00ff88', 'font-size': '10' });
+                fill: '#00ff88', 'font-size': '10', class: 'div-point-label' });
             lbl.textContent = v + '%';
             g.appendChild(lbl);
         }
         svg.appendChild(g);
         pointGroups.rate.push(g);
+    });
+
+    // Remove any accidental middle-point labels from the 2023 intersection group.
+    [pointGroups.cost[1], pointGroups.rate[1]].forEach(group => {
+        if (group) {
+            group.querySelectorAll('text').forEach(label => label.remove());
+        }
     });
 
     window._divPoints = pointGroups;

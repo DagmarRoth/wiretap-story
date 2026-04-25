@@ -107,17 +107,6 @@ body {
 ---------------------------------------------------------------- */
 .hi-green { color: var(--green); font-family: var(--font-mono); font-weight: 700; }
 .hi-red   { color: var(--red);   font-family: var(--font-mono); font-weight: 700; }
-
-.signal-dot {
-    display: inline-block;
-    width: 7px; height: 7px;
-    background: var(--green);
-    border-radius: 50%;
-    animation: pulse-dot 2s ease-in-out infinite;
-}
-@keyframes pulse-dot {
-    0%,100% { opacity:1; box-shadow: 0 0 0 0 var(--green-glow); }
-    50%      { opacity:0.6; box-shadow: 0 0 0 6px transparent; }
 }
 
 /* ----------------------------------------------------------------
@@ -155,6 +144,7 @@ body {
     padding: 2rem;
     max-width: 860px;
     width: 100%;
+    margin: 0 auto;
 }
 
 .classified-stamp {
@@ -784,25 +774,18 @@ body {
 .state-bars-wrap { display: flex; flex-direction: column; gap: 0.65rem; }
 .state-bar-row {
     display: grid;
-    grid-template-columns: 26px 48px 1fr 54px;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) 64px;
     align-items: center;
     gap: 0.55rem;
 }
-.state-abbr {
-    font-family: var(--font-mono);
-    font-size: 0.62rem;
-    letter-spacing: 0.1em;
-    color: var(--text-faint);
-    text-align: right;
-}
 .state-name-full {
     font-family: var(--font-mono);
-    font-size: 0.6rem;
+    font-size: 0.7rem;
     letter-spacing: 0.05em;
     color: var(--text-mid);
     white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    overflow: visible;
+    text-overflow: clip;
 }
 .state-track {
     height: 20px;

@@ -37,44 +37,6 @@ function initProgressBar() {
 }
 
 // ----------------------------------------------------------------
-// CUSTOM CURSOR
-// ----------------------------------------------------------------
-function initCursor() {
-    const dot      = document.getElementById('cursor');
-    const follower = document.getElementById('cursorFollower');
-    if (!dot || !follower) return;
-
-    let mx = 0, my = 0, fx = 0, fy = 0;
-    document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
-
-    // Instant dot
-    document.addEventListener('mousemove', e => {
-        dot.style.left = e.clientX + 'px';
-        dot.style.top  = e.clientY + 'px';
-    });
-
-    // Smooth follower
-    (function rafLoop() {
-        fx = lerp(fx, mx, 0.11);
-        fy = lerp(fy, my, 0.11);
-        follower.style.left = fx + 'px';
-        follower.style.top  = fy + 'px';
-        requestAnimationFrame(rafLoop);
-    })();
-
-    document.querySelectorAll('a, button').forEach(el => {
-        el.addEventListener('mouseenter', () => {
-            dot.style.transform = 'translate(-50%,-50%) scale(2.2)';
-            follower.style.width = follower.style.height = '42px';
-        });
-        el.addEventListener('mouseleave', () => {
-            dot.style.transform = 'translate(-50%,-50%) scale(1)';
-            follower.style.width = follower.style.height = '26px';
-        });
-    });
-}
-
-// ----------------------------------------------------------------
 // DATA STREAM (hero background)
 // ----------------------------------------------------------------
 function initDataStream() {
@@ -176,7 +138,7 @@ function buildDivergenceChart() {
     const yRate = v => pad.top + (1 - (v - rateMin) / (rateMax - rateMin)) * innerH;
 
     // Grid lines
-    [0, 0.25, 0.5, 0.75, 1].forEach(t => {
+    [0, 0.25, 0.75, 1].forEach(t => {
         const y = pad.top + t * innerH;
         svg.appendChild(el('line', { x1: pad.left, x2: W - pad.right, y1: y, y2: y,
             stroke: 'rgba(220,232,255,0.06)', 'stroke-width': 1 }));
@@ -191,7 +153,7 @@ function buildDivergenceChart() {
     });
 
     // Left axis (cost) — red
-    [costMin, (costMin + costMax) / 2, costMax].forEach(v => {
+    [costMin, costMax].forEach(v => {
         const t = el('text', { x: pad.left - 8, y: yCost(v) + 4, 'text-anchor': 'end',
             fill: 'rgba(255,26,94,0.6)', 'font-size': '10' });
         t.textContent = '$' + Math.round(v / 1000) + 'K';
@@ -199,7 +161,7 @@ function buildDivergenceChart() {
     });
 
     // Right axis (rate) — green
-    [rateMin, (rateMin + rateMax) / 2, rateMax].forEach(v => {
+    [rateMin, rateMax].forEach(v => {
         const t = el('text', { x: W - pad.right + 8, y: yRate(v) + 4, 'text-anchor': 'start',
             fill: 'rgba(0,255,136,0.6)', 'font-size': '10' });
         t.textContent = v.toFixed(1) + '%';
@@ -243,10 +205,14 @@ function buildDivergenceChart() {
         g.id = 'cp' + i;
         const c = el('circle', { cx: xOf(i), cy: yCost(v), r: '5', fill: '#ff1a5e' });
         c.style.filter = 'drop-shadow(0 0 7px rgba(255,26,94,0.9))';
-        const lbl = el('text', { x: xOf(i), y: yCost(v) - 11, 'text-anchor': 'middle',
-            fill: '#ff1a5e', 'font-size': '10' });
-        lbl.textContent = '$' + Math.round(v / 1000) + 'K';
-        g.appendChild(c); g.appendChild(lbl); svg.appendChild(g);
+        g.appendChild(c);
+        if (i !== 1) {
+            const lbl = el('text', { x: xOf(i), y: yCost(v) - 11, 'text-anchor': 'middle',
+                fill: '#ff1a5e', 'font-size': '10' });
+            lbl.textContent = '$' + Math.round(v / 1000) + 'K';
+            g.appendChild(lbl);
+        }
+        svg.appendChild(g);
         pointGroups.cost.push(g);
     });
     data.rate.forEach((v, i) => {
@@ -255,10 +221,14 @@ function buildDivergenceChart() {
         g.id = 'rp' + i;
         const c = el('circle', { cx: xOf(i), cy: yRate(v), r: '5', fill: '#00ff88' });
         c.style.filter = 'drop-shadow(0 0 7px rgba(0,255,136,0.9))';
-        const lbl = el('text', { x: xOf(i), y: yRate(v) - 11, 'text-anchor': 'middle',
-            fill: '#00ff88', 'font-size': '10' });
-        lbl.textContent = v + '%';
-        g.appendChild(c); g.appendChild(lbl); svg.appendChild(g);
+        g.appendChild(c);
+        if (i !== 1) {
+            const lbl = el('text', { x: xOf(i), y: yRate(v) - 11, 'text-anchor': 'middle',
+                fill: '#00ff88', 'font-size': '10' });
+            lbl.textContent = v + '%';
+            g.appendChild(lbl);
+        }
+        svg.appendChild(g);
         pointGroups.rate.push(g);
     });
 
@@ -302,7 +272,6 @@ function buildStateBars() {
         const row = document.createElement('div');
         row.className = 'state-bar-row';
         row.innerHTML = `
-            <span class="state-abbr">${s.abbr}</span>
             <span class="state-name-full">${s.name}</span>
             <div class="state-track">
                 <div class="state-fill${i === 0 ? ' highlight' : ''}" id="sb${i}" style="width:0%"></div>
@@ -511,7 +480,6 @@ function initScrollama() {
 // ----------------------------------------------------------------
 document.addEventListener('DOMContentLoaded', () => {
     initProgressBar();
-    initCursor();
     initDataStream();
     initHeroCounter();
     initCountUps();
@@ -520,16 +488,4 @@ document.addEventListener('DOMContentLoaded', () => {
     buildDonut();
     initReveal();
     initScrollama();
-
-    // Cursor visibility on page leave/enter
-    const cursor   = document.getElementById('cursor');
-    const follower = document.getElementById('cursorFollower');
-    document.addEventListener('mouseleave', () => {
-        if (cursor)   cursor.style.opacity   = '0';
-        if (follower) follower.style.opacity = '0';
-    });
-    document.addEventListener('mouseenter', () => {
-        if (cursor)   cursor.style.opacity   = '1';
-        if (follower) follower.style.opacity = '0.45';
-    });
 });

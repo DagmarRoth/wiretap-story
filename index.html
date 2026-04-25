@@ -12,8 +12,6 @@
 <body>
 
 <div class="progress-bar" id="progressBar" aria-hidden="true"></div>
-<div class="cursor" id="cursor" aria-hidden="true"></div>
-<div class="cursor-follower" id="cursorFollower" aria-hidden="true"></div>
 <div class="scanlines" aria-hidden="true"></div>
 
 <!-- ================================================================
@@ -25,10 +23,6 @@
     <div class="hero-content">
         <div class="classified-stamp" aria-label="Classified">CLASSIFIED</div>
 
-        <p class="hero-eyebrow">
-            <span class="signal-dot" aria-hidden="true"></span>
-            LIVE INTERCEPT — U.S. WIRETAP PROGRAM 2024
-        </p>
 
         <h1 class="hero-title" aria-label="Wiretap Waste">
             <span class="title-line">WIRE</span><span class="title-line accent">TAP</span><span class="title-line">WASTE</span>
@@ -69,25 +63,10 @@
 <!-- ================================================================
      ACT I — THE INTERCEPT
 ================================================================ -->
-<section class="act-header" id="act1">
-    <div class="act-label">— ACT I —</div>
-    <h2 class="act-title">THE<br>INTERCEPT</h2>
-    <p class="act-sub">Every phone call. Every signal. A third party joins — uninvited, invisible, federally authorized.</p>
-</section>
 
 <section class="scrolly-section" id="scrolly-intercept">
     <div class="scrolly-sticky">
         <div class="intercept-stage" id="interceptStage">
-            <!-- Phone A -->
-            <div class="phone-node left" id="phoneA">
-                <div class="phone-ring"></div>
-                <div class="phone-icon-wrap">
-                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.81 19.79 19.79 0 01.01 2.18C0 1.08.87 0 2 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
-                </div>
-                <span class="phone-label">PARTY A</span>
-                <span class="call-status" id="statusA">● ACTIVE CALL</span>
-            </div>
-
             <!-- Wire SVG -->
             <div class="wire-wrap">
                 <svg class="wire-svg" id="wireSVG" viewBox="0 0 320 100" preserveAspectRatio="none" aria-hidden="true">
@@ -95,29 +74,11 @@
                     <path class="wire-base" d="M0,50 L320,50"/>
                     <!-- Animated signal -->
                     <path class="wire-signal" id="wireSignal" d="M0,50 C20,30 40,70 60,50 C80,30 100,70 120,50 C140,30 160,70 180,50 C200,30 220,70 240,50 C260,30 280,70 300,50 L320,50"/>
-                    <!-- Tap marker (hidden until step 2) -->
-                    <g id="tapMarker" class="tap-marker" opacity="0">
-                        <circle cx="160" cy="50" r="14" class="tap-circle"/>
-                        <text x="160" y="54" text-anchor="middle" class="tap-text">TAP</text>
-                        <!-- Branch down -->
-                        <line x1="160" y1="64" x2="160" y2="100" class="tap-branch"/>
-                        <circle cx="160" cy="100" r="4" class="tap-branch-end"/>
-                    </g>
-                </svg>
+                    </svg>
                 <!-- Flowing particles -->
                 <div class="signal-particles" id="signalParticles" aria-hidden="true">
                     <span></span><span></span><span></span><span></span>
                 </div>
-            </div>
-
-            <!-- Phone B -->
-            <div class="phone-node right" id="phoneB">
-                <div class="phone-ring"></div>
-                <div class="phone-icon-wrap">
-                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.81 19.79 19.79 0 01.01 2.18C0 1.08.87 0 2 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>
-                </div>
-                <span class="phone-label">PARTY B</span>
-                <span class="call-status" id="statusB">● ACTIVE CALL</span>
             </div>
 
             <!-- Monitoring readout (shown after tap) -->
@@ -186,11 +147,6 @@
 <!-- ================================================================
      ACT II — THE DIVERGENCE
 ================================================================ -->
-<section class="act-header" id="act2">
-    <div class="act-label">— ACT II —</div>
-    <h2 class="act-title">THE<br>DIVERGENCE</h2>
-    <p class="act-sub">Costs climb. Evidence falls. Three years of data tell a single, damning story.</p>
-</section>
 
 <section class="scrolly-section" id="scrolly-divergence">
     <div class="scrolly-sticky">
@@ -240,26 +196,8 @@
 </section>
 
 <!-- ================================================================
-     PULL QUOTE
-================================================================ -->
-<section class="pull-quote-section">
-    <figure class="pull-quote">
-        <div class="pq-mark" aria-hidden="true">&ldquo;</div>
-        <blockquote>
-            The government spent <em>more money</em> to capture <em>less evidence</em> — three years running.
-        </blockquote>
-        <figcaption>Administrative Office of U.S. Courts, 2024 Wiretap Report</figcaption>
-    </figure>
-</section>
-
-<!-- ================================================================
      ACT III — THE GEOGRAPHY
 ================================================================ -->
-<section class="act-header" id="act3">
-    <div class="act-label">— ACT III —</div>
-    <h2 class="act-title">THE<br>GEOGRAPHY</h2>
-    <p class="act-sub">Surveillance waste doesn't spread evenly. It concentrates. Six states account for 75% of the damage.</p>
-</section>
 
 <section class="scrolly-section" id="scrolly-geo">
     <div class="scrolly-sticky">
@@ -302,11 +240,6 @@
 <!-- ================================================================
      ACT IV — THE ANATOMY
 ================================================================ -->
-<section class="act-header" id="act4">
-    <div class="act-label">— ACT IV —</div>
-    <h2 class="act-title">THE<br>ANATOMY</h2>
-    <p class="act-sub">$258 million. Here is exactly what it bought — and why it produced nothing.</p>
-</section>
 
 <section class="scrolly-section" id="scrolly-anatomy">
     <div class="scrolly-sticky">
@@ -359,38 +292,6 @@
     </div>
 </section>
 
-<!-- ================================================================
-     VERDICT
-================================================================ -->
-<section class="verdict-section" id="verdict">
-    <div class="verdict-inner">
-        <div class="verdict-stamp">FINDINGS</div>
-        <h2 class="verdict-title">OVERSIGHT<br>FAILURE.<br>DEMOCRATIC<br>EROSION.</h2>
-        <div class="verdict-copy">
-            <p>The U.S. wiretap program is not merely wasteful — it is structurally broken. Courts authorize surveillance that agencies duplicate. Budgets grow despite diminishing returns. Privacy is violated at industrial scale. Evidence is not.</p>
-            <p>The $258 million wasted in 2024 is not an anomaly. It is the system working exactly as designed: no accountability, no reform, no end in sight.</p>
-        </div>
-        <div class="verdict-stats-grid">
-            <div class="vs-card">
-                <div class="vs-val">$405M</div>
-                <div class="vs-label">Total 2024 spend</div>
-            </div>
-            <div class="vs-card danger">
-                <div class="vs-val">$258M</div>
-                <div class="vs-label">Documented waste</div>
-            </div>
-            <div class="vs-card">
-                <div class="vs-val">29.5%</div>
-                <div class="vs-label">Cost increase 2022–24</div>
-            </div>
-            <div class="vs-card danger">
-                <div class="vs-val">11.3%</div>
-                <div class="vs-label">Evidence rate 2024</div>
-            </div>
-        </div>
-    </div>
-</section>
-
 <!-- Full-bleed image -->
 <figure class="full-bleed-fig">
     <img src="IMAGES/david-trinks-Vvh_9ooeEZ0-unsplash.jpg" alt="Federal building exterior" loading="lazy">
@@ -412,7 +313,6 @@
             <a href="https://www.theguardian.com/world/ng-interactive/2026/feb/20/a-war-foretold-cia-mi6-putin-ukraine-plans-russia" target="_blank" rel="noopener">Inspiration: The Guardian</a>
         </div>
         <div class="footer-sig">
-            <span class="signal-dot" aria-hidden="true"></span>
             WIRETAP WASTE © 2024
         </div>
     </div>
